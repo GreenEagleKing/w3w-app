@@ -1,10 +1,21 @@
 import PasswordRecovery from "./pages/passwordRecovery";
+import Home from "./pages/home";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <PasswordRecovery />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path="/map" element={<PasswordRecovery />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
