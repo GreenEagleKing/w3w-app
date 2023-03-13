@@ -4,8 +4,7 @@ import Home from "./pages/home";
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
