@@ -5,6 +5,8 @@ import {
 
   
   export default function Map() {
+
+
     return (
       <What3wordsMap
         id="w3w-map"
@@ -22,16 +24,15 @@ import {
         current_location_control_position={9}
         disable_default_ui={true}
         map_type_id="satellite"
-        words=""
+        words="filled.count.soap"
         libraries={["places"]}
       >
         
         <div slot="map" style={{ width: "70%", height: "60vh" }} />
         <div slot="search-control">
         <What3wordsAutosuggest>
-            <input type="text" placeholder="" />
+            <input type="text" placeholder="///filled.count.soap" />
         </What3wordsAutosuggest>
-        {console.log(What3wordsMap)}
    </div>
         
       </What3wordsMap>
