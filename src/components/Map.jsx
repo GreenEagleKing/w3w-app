@@ -24,14 +24,14 @@ import {
         current_location_control_position={9}
         disable_default_ui={true}
         map_type_id="satellite"
-        words="filled.count.soap"
+        words="Search Location"
         libraries={["places"]}
       >
         
         <div slot="map" style={{ width: "70%", height: "60vh" }} />
         <div slot="search-control">
         <What3wordsAutosuggest>
-            <input type="text" placeholder="///filled.count.soap" />
+            <input type="text" placeholder="Search Location" />
         </What3wordsAutosuggest>
    </div>
         
