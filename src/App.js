@@ -23,16 +23,13 @@ function App() {
     getData()
     
   }, [])
-
-  console.log(data.user1)
-
   
 
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home />}/>
-        <Route path="/map" element={<PasswordRecovery />}/>
+        <Route path="/map" element={<PasswordRecovery data={data}/>}/>
         <Route path="/result" element={<Result />}/>
       </Routes>
     </BrowserRouter>
