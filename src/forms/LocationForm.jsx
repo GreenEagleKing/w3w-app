@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LocationForm() {
     // keeps track of all selected locations
     const [selectedLocations, setSelectedLocations] = useState('')
+    const navigate = useNavigate()
 
     // useEffect to control the event listener of the selected square
     useEffect(() => {
@@ -24,10 +26,15 @@ export default function LocationForm() {
           selected3Words.removeEventListener("selected_square", handleSelectedSquare);
         };
       }, []);
+
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      navigate('/result')
+    }
    
   return (
     <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>Location 1
                 <input type='text' name='location1' id='location1'></input>
             </label>
