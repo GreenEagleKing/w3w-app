@@ -34,7 +34,7 @@ export default function LocationForm({ data }) {
       if(selectedLocations === dataLocation1) {
         console.log("Successful match")
       }
-      // navigate('/result')
+      navigate('/result')
     }
    
   return (
