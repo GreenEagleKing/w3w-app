@@ -28,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />}/>
+        <Route exact path="/" element={<Home data={data}/>}/>
         <Route path="/map" element={<PasswordRecovery data={data}/>}/>
         <Route path="/result" element={<Result />}/>
       </Routes>
