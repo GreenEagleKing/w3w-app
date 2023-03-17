@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 
 import Header from '../components/Header'
 
-export default function Result() {
+export default function Result({ data }) {
   return (
     <div>
         <Header />
+
+        
+
         <Link to="/">
             <button>Try again</button>
         </Link>
