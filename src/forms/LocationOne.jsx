@@ -10,7 +10,7 @@ function LocationOne({ }) {
     <div>
         <form>
             <label>Location 1
-                <input type='text' name='location1' id='location1'></input>
+                <input type='text' name='location1' className='location'></input>
             </label>
         </form>
     </div>
