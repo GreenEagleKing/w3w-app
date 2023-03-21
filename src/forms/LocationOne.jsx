@@ -1,10 +1,6 @@
 import React from 'react'
 
-function LocationOne({ }) {
-
-    // const handleChange = event => {
-    //     updateLocation({ ...data, name: event.target.value });
-    //   };
+function LocationOne() {
 
   return (
     <div>
@@ -13,7 +9,7 @@ function LocationOne({ }) {
                 <input type='text' name='location1' className='location'></input>
             </label>
         </form>
-    </div>
+    </div>  
   )
 }
 

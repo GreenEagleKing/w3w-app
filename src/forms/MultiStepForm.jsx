@@ -7,12 +7,25 @@ import { useSelectedSquare } from '../hooks/useSelectedSquare';
 
 
 export default function MultiStepForm({ data }) {
-    // keeps track of all selected locations
-    // const [selectedLocations, setSelectedLocations] = useState('')
+  const { square } = useSelectedSquare();
+
+    const [selectedLocations, setSelectedLocations] = useState({
+      locationOne: '',
+      locationTwo: '',
+    })
     const [step, setStep] = useState(1);
     const navigate = useNavigate()
 
-    useSelectedSquare()
+    useEffect(() => {
+      if(step === 1) {
+        setSelectedLocations({ ...selectedLocations, locationOne: square})
+      } else {
+        setSelectedLocations({ ...selectedLocations, locationTwo: square})
+      }
+      console.log(selectedLocations)
+    }, [square])
+
+
 
     const handleSubmit = (event) => {
       event.preventDefault()
@@ -28,10 +41,10 @@ export default function MultiStepForm({ data }) {
       setStep(step - 1);
     };
    
-  return (
+  return (  
     <div>
       {step === 1 && (
-        <LocationOne data={data}/>
+        <LocationOne data={data} />
       )}
       {step === 2 && (
         <LocationTwo data={data} />
