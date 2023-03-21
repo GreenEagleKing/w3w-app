@@ -6,7 +6,12 @@ function LocationTwo() {
       <form>
         <label>
           Location 2
-          <input type="text" name="location2" className="location"></input>
+          <input
+            type="text"
+            name="location2"
+            className="location"
+            disabled
+          ></input>
         </label>
       </form>
     </div>
