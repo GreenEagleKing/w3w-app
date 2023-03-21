@@ -21,12 +21,14 @@ export default function MultiStepForm({ data }) {
     } else {
       setSelectedLocations({ ...selectedLocations, locationTwo: square })
     }
-    console.log(selectedLocations)
   }, [square])
+
+  console.log(selectedLocations)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(event)
+    console.log(selectedLocations)
+    console.log(data)
     navigate("/result")
   }
 
@@ -44,7 +46,7 @@ export default function MultiStepForm({ data }) {
       {step === 2 && <LocationTwo data={data} />}
       {step > 1 && <button onClick={prevStep}>Back</button>}
       {step < 2 && <button onClick={nextStep}>Next</button>}
-      {step === 2 && <button onClick={() => handleSubmit}>Submit</button>}
+      {step === 2 && <button onClick={handleSubmit}>Submit</button>}
     </div>
   )
 }
