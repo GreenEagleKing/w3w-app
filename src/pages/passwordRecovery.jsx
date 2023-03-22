@@ -4,11 +4,11 @@ import Map from "../components/Map"
 import Header from "../components/Header"
 import MultiStepForm from "../forms/MultiStepForm"
 
-export default function PasswordRecovery({ data }) {
+export default function PasswordRecovery({ data, handleIsLocation }) {
   return (
     <div>
       <Header />
-      <MultiStepForm data={data} />
+      <MultiStepForm data={data} handleIsLocation={handleIsLocation} />
       <Map />
     </div>
   )

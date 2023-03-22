@@ -5,7 +5,7 @@ import LocationOne from "./LocationOne"
 import LocationTwo from "./LocationTwo"
 import { useSelectedSquare } from "../hooks/useSelectedSquare"
 
-export default function MultiStepForm({ data }) {
+export default function MultiStepForm({ data, handleIsLocation }) {
   const { square } = useSelectedSquare()
 
   const [selectedLocations, setSelectedLocations] = useState({
@@ -27,6 +27,13 @@ export default function MultiStepForm({ data }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    if (
+      selectedLocations.locationOne === data.user1.what3words.location1 &&
+      selectedLocations.locationTwo === data.user1.what3words.location2
+    ) {
+      handleIsLocation()
+      console.log("Success")
+    }
     console.log(selectedLocations)
     console.log(data)
     navigate("/result")
