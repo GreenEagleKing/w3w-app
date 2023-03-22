@@ -32,10 +32,7 @@ export default function MultiStepForm({ data, handleIsLocation }) {
       selectedLocations.locationTwo === data.user1.what3words.location2
     ) {
       handleIsLocation()
-      console.log("Success")
     }
-    console.log(selectedLocations)
-    console.log(data)
     navigate("/result")
   }
 

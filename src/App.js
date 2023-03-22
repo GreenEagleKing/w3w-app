@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 
 function App() {
   const [data, setData] = useState([])
-  const [isLocations, setIsLocations] = useState(false)
+  const [isLocation, setIsLocation] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -20,7 +20,7 @@ function App() {
   }, [])
 
   function handleIsLocation() {
-    setIsLocations(!isLocations)
+    setIsLocation(!isLocation)
   }
 
   return (
@@ -33,7 +33,7 @@ function App() {
             <PasswordRecovery data={data} handleIsLocation={handleIsLocation} />
           }
         />
-        <Route path="/result" element={<Result />} />
+        <Route path="/result" element={<Result isLocation={isLocation} />} />
       </Routes>
     </BrowserRouter>
   )

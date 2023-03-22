@@ -3,18 +3,21 @@ import { Link } from "react-router-dom"
 
 import Header from "../components/Header"
 
-export default function Result({ data }) {
+export default function Result({ data, isLocation }) {
   return (
     <div>
       <Header />
-      <Link to="/">
-        <button>Start Again</button>
-      </Link>
+      {isLocation ? (
+        <Link to="/">
+          <button>Reset Password</button>
+        </Link>
+      ) : (
+        <Link to="/">
+          <button>Start Again</button>
+        </Link>
+      )}
       <Link to="/map">
         <button>Try Again</button>
-      </Link>
-      <Link to="/">
-        <button>Reset Password</button>
       </Link>
     </div>
   )
