@@ -6,10 +6,10 @@ import MultiStepForm from "../forms/MultiStepForm"
 
 export default function PasswordRecovery({ data, handleIsLocation }) {
   return (
-    <div>
+    <>
       <Header />
       <MultiStepForm data={data} handleIsLocation={handleIsLocation} />
       <Map />
-    </div>
+    </>
   )
 }
