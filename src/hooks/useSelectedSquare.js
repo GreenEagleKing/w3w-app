@@ -5,10 +5,10 @@ export function useSelectedSquare() {
 
   useEffect(() => {
     const selected3Words = document.getElementById("w3w-map")
-    const locationInput = document.getElementsByClassName("location")
+    const locationRef = document.getElementsByClassName("location")
 
     const handleSelectedSquare = (e) => {
-      locationInput[0].value = e.detail.words
+      locationRef[0].innerText = e.detail.words
       setSquare(e.detail.words)
     }
 

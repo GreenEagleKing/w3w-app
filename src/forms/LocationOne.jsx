@@ -5,27 +5,20 @@ function LocationOne({ selectedLocations }) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const input = ref.current
-    if (input.value === "") {
-      input.value = selectedLocations.locationOne
+    const currentLocationRef = ref.current
+    if (currentLocationRef.innerText === "") {
+      currentLocationRef.innerText = selectedLocations.locationOne
     }
   }, [])
 
   return (
-    <div>
+    <>
       <form>
         <label>
-          Location 1
-          <input
-            ref={ref}
-            type="text"
-            name="location1"
-            className="location"
-            disabled
-          ></input>
+          Location 1<p ref={ref} name="location1" className="location"></p>
         </label>
       </form>
-    </div>
+    </>
   )
 }
 

@@ -5,9 +5,9 @@ function LocationTwo({ selectedLocations }) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const input = ref.current
-    if (input.value === "") {
-      input.value = selectedLocations.locationTwo
+    const currentLocationRef = ref.current
+    if (currentLocationRef.innerText === "") {
+      currentLocationRef.innerText = selectedLocations.locationTwo
     }
   }, [])
 
@@ -15,14 +15,7 @@ function LocationTwo({ selectedLocations }) {
     <div>
       <form>
         <label>
-          Location 2
-          <input
-            ref={ref}
-            type="text"
-            name="location2"
-            className="location"
-            disabled
-          ></input>
+          Location 2<p ref={ref} name="location2" className="location"></p>
         </label>
       </form>
     </div>
