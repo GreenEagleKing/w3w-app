@@ -1,6 +1,7 @@
 import PasswordRecovery from "./pages/passwordRecovery"
 import Home from "./pages/home"
 import Result from "./pages/result"
+import SetLocations from "./pages/setLocations"
 import fetchData from "./hooks/api"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -34,6 +35,7 @@ function App() {
           }
         />
         <Route path="/result" element={<Result isLocation={isLocation} />} />
+        <Route path="/setLocations" element={<SetLocations />} />
       </Routes>
     </BrowserRouter>
   )
