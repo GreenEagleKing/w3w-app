@@ -1,13 +1,15 @@
 import React from "react"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function CreateUser({ createUser }) {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("")
 
   function handleSubmit(e) {
-    e.preventDefault()
+    // e.preventDefault()
     createUser(username)
-    console.log(username)
+    navigate("/map")
   }
 
   return (

@@ -6,7 +6,7 @@ import fetchData from "./hooks/api"
 
 import { db } from "./firebase"
 import { uid } from "uid"
-import { set, ref } from "firebase/database"
+import { set, ref, update } from "firebase/database"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -14,6 +14,7 @@ import { useState, useEffect } from "react"
 function App() {
   const [data, setData] = useState([])
   const [isLocation, setIsLocation] = useState(false)
+  const [currentUserId, setCurrentUserId] = useState("")
 
   useEffect(() => {
     const getData = async () => {
@@ -39,7 +40,16 @@ function App() {
         locationTwo: "",
       },
     })
-    console.log(name)
+    setCurrentUserId(uuid)
+  }
+
+  function updateLocations(loc1, loc2) {
+    update(ref(db, `/${currentUserId}`), {
+      what3wordLocations: {
+        locationOne: loc1,
+        locationTwo: loc2,
+      },
+    })
   }
 
   return (
@@ -49,7 +59,11 @@ function App() {
         <Route
           path="/map"
           element={
-            <PasswordRecovery data={data} handleIsLocation={handleIsLocation} />
+            <PasswordRecovery
+              data={data}
+              handleIsLocation={handleIsLocation}
+              updateLocations={updateLocations}
+            />
           }
         />
         <Route path="/result" element={<Result isLocation={isLocation} />} />
