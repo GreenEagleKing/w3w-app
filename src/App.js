@@ -4,6 +4,10 @@ import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
 import fetchData from "./hooks/api"
 
+import { db } from "./firebase"
+import { uid } from "uid"
+import { set, ref } from "firebase/database"
+
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
@@ -24,6 +28,20 @@ function App() {
     setIsLocation(!isLocation)
   }
 
+  // temp write to db
+  function createUser(name) {
+    const uuid = uid()
+    set(ref(db, `/${uuid}`), {
+      username: name,
+      id: uuid,
+      what3wordLocations: {
+        locationOne: "",
+        locationTwo: "",
+      },
+    })
+    console.log(name)
+  }
+
   return (
     <BrowserRouter>
       <Routes>
@@ -35,7 +53,10 @@ function App() {
           }
         />
         <Route path="/result" element={<Result isLocation={isLocation} />} />
-        <Route path="/setLocations" element={<SetLocations />} />
+        <Route
+          path="/setLocations"
+          element={<SetLocations createUser={createUser} />}
+        />
       </Routes>
     </BrowserRouter>
   )

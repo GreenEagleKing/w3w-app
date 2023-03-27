@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import CreateUser from "../forms/CreateUser"
 import CheckUser from "../forms/CheckUser"
 
-export default function SetLocations({ data }) {
+export default function SetLocations({ data, createUser }) {
   return (
     <>
       <Header />
@@ -12,7 +12,7 @@ export default function SetLocations({ data }) {
           Welcome to password recovery using what3words. Please create a new
           username or input existing.
         </p>
-        <CreateUser />
+        <CreateUser createUser={createUser} />
         <CheckUser />
       </div>
     </>
