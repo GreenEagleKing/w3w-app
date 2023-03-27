@@ -15,6 +15,7 @@ function App() {
   const [data, setData] = useState([])
   const [isLocation, setIsLocation] = useState(false)
   const [currentUserId, setCurrentUserId] = useState("")
+  const [isNewUser, setIsNewUser] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -27,6 +28,10 @@ function App() {
 
   function handleIsLocation() {
     setIsLocation(!isLocation)
+  }
+
+  function handleIsNewUser() {
+    setIsNewUser(!isNewUser)
   }
 
   // temp write to db
@@ -55,7 +60,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home data={data} />} />
+        <Route
+          exact
+          path="/"
+          element={<Home data={data} handleIsNewUser={handleIsNewUser} />}
+        />
         <Route
           path="/map"
           element={
@@ -66,7 +75,10 @@ function App() {
             />
           }
         />
-        <Route path="/result" element={<Result isLocation={isLocation} />} />
+        <Route
+          path="/result"
+          element={<Result isLocation={isLocation} isNewUser={isNewUser} />}
+        />
         <Route
           path="/setLocations"
           element={<SetLocations createUser={createUser} />}

@@ -2,7 +2,11 @@ import React from "react"
 import Header from "../components/Header"
 import { Link } from "react-router-dom"
 
-export default function Home({ data }) {
+export default function Home({ data, handleIsNewUser }) {
+  const handleClick = (e) => {
+    handleIsNewUser()
+  }
+
   return (
     <>
       <Header />
@@ -15,7 +19,7 @@ export default function Home({ data }) {
           <button>{`Confirm username is correct`}</button>
         </Link>
         <Link to="/setLocations">
-          <button>{`Set Locations`}</button>
+          <button onClick={handleClick}>{`Set Locations`}</button>
         </Link>
       </div>
     </>
