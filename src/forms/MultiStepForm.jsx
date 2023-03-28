@@ -6,7 +6,14 @@ import LocationOne from "./LocationOne"
 import LocationTwo from "./LocationTwo"
 import { useSelectedSquare } from "../hooks/useSelectedSquare"
 
-export default function MultiStepForm({ data, handleIsLocation }) {
+export default function MultiStepForm({
+  handleIsLocation,
+  updateLocations,
+  isNewUser,
+  currentUser,
+  handleIsCreated,
+  isUpdating,
+}) {
   const { square } = useSelectedSquare()
 
   const [selectedLocations, setSelectedLocations] = useState({
@@ -26,13 +33,22 @@ export default function MultiStepForm({ data, handleIsLocation }) {
 
   console.log(selectedLocations)
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (
-      selectedLocations.locationOne === data.user1.what3words.location1 &&
-      selectedLocations.locationTwo === data.user1.what3words.location2
-    ) {
-      handleIsLocation()
+  const handleSubmit = (e) => {
+    if (isNewUser || isUpdating) {
+      updateLocations(
+        selectedLocations.locationOne,
+        selectedLocations.locationTwo
+      )
+      handleIsCreated()
+    } else {
+      if (
+        selectedLocations.locationOne ===
+          currentUser.what3wordLocations.locationOne &&
+        selectedLocations.locationOne ===
+          currentUser.what3wordLocations.locationOne
+      ) {
+        handleIsLocation()
+      }
     }
     navigate("/result")
   }
@@ -47,12 +63,8 @@ export default function MultiStepForm({ data, handleIsLocation }) {
 
   return (
     <>
-      {step === 1 && (
-        <LocationOne data={data} selectedLocations={selectedLocations} />
-      )}
-      {step === 2 && (
-        <LocationTwo data={data} selectedLocations={selectedLocations} />
-      )}
+      {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
+      {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
       {step > 1 && <button onClick={prevStep}>Back</button>}
       {step < 2 && <button onClick={nextStep}>Next</button>}
       {step === 2 && <button onClick={handleSubmit}>Submit</button>}
