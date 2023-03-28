@@ -12,6 +12,7 @@ export default function MultiStepForm({
   isNewUser,
   currentUser,
   handleIsCreated,
+  isUpdating,
 }) {
   const { square } = useSelectedSquare()
 
@@ -33,7 +34,7 @@ export default function MultiStepForm({
   console.log(selectedLocations)
 
   const handleSubmit = (e) => {
-    if (isNewUser) {
+    if (isNewUser || isUpdating) {
       updateLocations(
         selectedLocations.locationOne,
         selectedLocations.locationTwo
@@ -62,12 +63,8 @@ export default function MultiStepForm({
 
   return (
     <>
-      {step === 1 && (
-        <LocationOne data={data} selectedLocations={selectedLocations} />
-      )}
-      {step === 2 && (
-        <LocationTwo data={data} selectedLocations={selectedLocations} />
-      )}
+      {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
+      {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
       {step > 1 && <button onClick={prevStep}>Back</button>}
       {step < 2 && <button onClick={nextStep}>Next</button>}
       {step === 2 && <button onClick={handleSubmit}>Submit</button>}

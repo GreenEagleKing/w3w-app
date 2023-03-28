@@ -16,6 +16,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [isNewUser, setIsNewUser] = useState(false)
   const [isCreated, setIsCreated] = useState(false)
+  const [isUpdating, setIsUpdating] = useState(false)
 
   // useEffect(() => {
   //   const getData = async () => {
@@ -30,8 +31,12 @@ function App() {
     setIsLocation(!isLocation)
   }
 
-  function handleIsNewUser() {
-    setIsNewUser(!isNewUser)
+  function handleIsNewUser(makeFalse) {
+    makeFalse ? setIsNewUser(false) : setIsNewUser(true)
+  }
+
+  function handleUpdateUser(makeFalse) {
+    makeFalse ? setIsUpdating(false) : setIsUpdating(true)
   }
 
   function handleIsCreated() {
@@ -70,6 +75,7 @@ function App() {
     }).then(() => {
       get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
         setCurrentUser(snapshot.val())
+        console.log(snapshot.val())
       })
     })
   }
@@ -83,7 +89,10 @@ function App() {
       .catch((error) => {
         console.log(error)
       })
+    handleUpdateUser()
   }
+
+  console.log(isNewUser, isUpdating)
 
   return (
     <BrowserRouter>
@@ -92,7 +101,11 @@ function App() {
           exact
           path="/"
           element={
-            <Home handleIsNewUser={handleIsNewUser} findUser={findUser} />
+            <Home
+              handleIsNewUser={handleIsNewUser}
+              findUser={findUser}
+              handleUpdateUser={handleUpdateUser}
+            />
           }
         />
         <Route
@@ -104,6 +117,7 @@ function App() {
               updateLocations={updateLocations}
               isNewUser={isNewUser}
               currentUser={currentUser}
+              isUpdating={isUpdating}
             />
           }
         />
@@ -114,12 +128,19 @@ function App() {
               isLocation={isLocation}
               isNewUser={isNewUser}
               isCreated={isCreated}
+              isUpdating={isUpdating}
             />
           }
         />
         <Route
           path="/setLocations"
-          element={<SetLocations createUser={createUser} findUser={findUser} />}
+          element={
+            <SetLocations
+              createUser={createUser}
+              findUser={findUser}
+              handleIsNewUser={handleIsNewUser}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>

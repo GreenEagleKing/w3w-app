@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-export default function Home({ handleIsNewUser, findUser }) {
+export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
   const [username, setUsername] = useState("")
   const navigate = useNavigate()
 
@@ -13,6 +13,8 @@ export default function Home({ handleIsNewUser, findUser }) {
 
   const handleSubmit = (e) => {
     findUser(username)
+    handleIsNewUser(username)
+    handleUpdateUser(username)
     navigate("/map")
   }
 

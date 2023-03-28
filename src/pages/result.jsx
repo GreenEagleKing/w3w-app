@@ -3,13 +3,22 @@ import { Link } from "react-router-dom"
 
 import Header from "../components/Header"
 
-export default function Result({ isLocation, isNewUser, isCreated }) {
+export default function Result({
+  isLocation,
+  isNewUser,
+  isCreated,
+  isUpdating,
+}) {
   return (
     <>
       <Header />
       {isNewUser && isCreated ? (
         <div>
-          <p>Locations successfully create for xxxx user.</p>
+          <p>Locations successfully created for xxxx user.</p>
+        </div>
+      ) : isUpdating ? (
+        <div>
+          <p>Locations successfully updated for xxxx user.</p>
         </div>
       ) : isNewUser && !isCreated ? (
         <div>
@@ -18,7 +27,7 @@ export default function Result({ isLocation, isNewUser, isCreated }) {
             <button>Go Back</button>
           </Link>
         </div>
-      ) : !isNewUser && isLocation ? (
+      ) : isLocation ? (
         <div>
           <p>Locations successfully matched. Please retrieve password.</p>
           <Link to="/">

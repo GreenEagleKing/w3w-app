@@ -10,6 +10,7 @@ export default function PasswordRecovery({
   isNewUser,
   currentUser,
   handleIsCreated,
+  isUpdating,
 }) {
   return (
     <>
@@ -20,6 +21,7 @@ export default function PasswordRecovery({
         isNewUser={isNewUser}
         currentUser={currentUser}
         handleIsCreated={handleIsCreated}
+        isUpdating={isUpdating}
       />
       <Map />
     </>
