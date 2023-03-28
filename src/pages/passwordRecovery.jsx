@@ -8,6 +8,9 @@ export default function PasswordRecovery({
   data,
   handleIsLocation,
   updateLocations,
+  isNewUser,
+  currentUser,
+  handleIsCreated,
 }) {
   return (
     <>
@@ -16,6 +19,9 @@ export default function PasswordRecovery({
         data={data}
         handleIsLocation={handleIsLocation}
         updateLocations={updateLocations}
+        isNewUser={isNewUser}
+        currentUser={currentUser}
+        handleIsCreated={handleIsCreated}
       />
       <Map />
     </>

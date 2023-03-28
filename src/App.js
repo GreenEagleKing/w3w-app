@@ -6,7 +6,7 @@ import fetchData from "./hooks/api"
 
 import { db } from "./firebase"
 import { uid } from "uid"
-import { set, ref, update } from "firebase/database"
+import { set, ref, update, get } from "firebase/database"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -14,8 +14,9 @@ import { useState, useEffect } from "react"
 function App() {
   const [data, setData] = useState([])
   const [isLocation, setIsLocation] = useState(false)
-  const [currentUserId, setCurrentUserId] = useState("")
+  const [currentUser, setCurrentUser] = useState(null)
   const [isNewUser, setIsNewUser] = useState(false)
+  const [isCreated, setIsCreated] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
@@ -34,27 +35,57 @@ function App() {
     setIsNewUser(!isNewUser)
   }
 
+  function handleIsCreated() {
+    setIsCreated(!isCreated)
+  }
+
   // temp write to db
   function createUser(name) {
     const uuid = uid()
-    set(ref(db, `/${uuid}`), {
+    set(ref(db, `/${name}`), {
       username: name,
       id: uuid,
       what3wordLocations: {
         locationOne: "",
         locationTwo: "",
       },
+    }).then(() => {
+      setCurrentUser({
+        username: name,
+        id: uuid,
+        what3wordLocations: {
+          locationOne: "",
+          locationTwo: "",
+        },
+      })
     })
-    setCurrentUserId(uuid)
+    return currentUser
   }
 
+  console.log(currentUser)
+
   function updateLocations(loc1, loc2) {
-    update(ref(db, `/${currentUserId}`), {
+    update(ref(db, `/${currentUser.username}`), {
       what3wordLocations: {
         locationOne: loc1,
         locationTwo: loc2,
       },
+    }).then(() => {
+      get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
+        setCurrentUser(snapshot.val())
+      })
     })
+  }
+
+  function findUser(username) {
+    console.log(username)
+    get(ref(db, `/${username}`))
+      .then((snapshot) => {
+        setCurrentUser(snapshot.val())
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
@@ -63,7 +94,13 @@ function App() {
         <Route
           exact
           path="/"
-          element={<Home data={data} handleIsNewUser={handleIsNewUser} />}
+          element={
+            <Home
+              data={data}
+              handleIsNewUser={handleIsNewUser}
+              findUser={findUser}
+            />
+          }
         />
         <Route
           path="/map"
@@ -71,17 +108,26 @@ function App() {
             <PasswordRecovery
               data={data}
               handleIsLocation={handleIsLocation}
+              handleIsCreated={handleIsCreated}
               updateLocations={updateLocations}
+              isNewUser={isNewUser}
+              currentUser={currentUser}
             />
           }
         />
         <Route
           path="/result"
-          element={<Result isLocation={isLocation} isNewUser={isNewUser} />}
+          element={
+            <Result
+              isLocation={isLocation}
+              isNewUser={isNewUser}
+              isCreated={isCreated}
+            />
+          }
         />
         <Route
           path="/setLocations"
-          element={<SetLocations createUser={createUser} />}
+          element={<SetLocations createUser={createUser} findUser={findUser} />}
         />
       </Routes>
     </BrowserRouter>

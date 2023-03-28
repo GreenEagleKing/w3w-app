@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import CreateUser from "../forms/CreateUser"
 import CheckUser from "../forms/CheckUser"
 
-export default function SetLocations({ data, createUser }) {
+export default function SetLocations({ data, createUser, findUser }) {
   return (
     <>
       <Header />
@@ -13,7 +13,7 @@ export default function SetLocations({ data, createUser }) {
           username or input existing.
         </p>
         <CreateUser createUser={createUser} />
-        <CheckUser />
+        <CheckUser findUser={findUser} />
       </div>
     </>
   )
