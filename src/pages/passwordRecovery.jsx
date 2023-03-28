@@ -5,7 +5,6 @@ import Header from "../components/Header"
 import MultiStepForm from "../forms/MultiStepForm"
 
 export default function PasswordRecovery({
-  data,
   handleIsLocation,
   updateLocations,
   isNewUser,
@@ -16,7 +15,6 @@ export default function PasswordRecovery({
     <>
       <Header />
       <MultiStepForm
-        data={data}
         handleIsLocation={handleIsLocation}
         updateLocations={updateLocations}
         isNewUser={isNewUser}

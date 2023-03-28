@@ -12,20 +12,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function App() {
-  const [data, setData] = useState([])
   const [isLocation, setIsLocation] = useState(false)
   const [currentUser, setCurrentUser] = useState(null)
   const [isNewUser, setIsNewUser] = useState(false)
   const [isCreated, setIsCreated] = useState(false)
 
-  useEffect(() => {
-    const getData = async () => {
-      const fetchedData = await fetchData()
-      setData(fetchedData)
-      console.log(fetchedData)
-    }
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const fetchedData = await fetchData()
+  //     setData(fetchedData)
+  //     console.log(fetchedData)
+  //   }
+  //   getData()
+  // }, [])
 
   function handleIsLocation() {
     setIsLocation(!isLocation)
@@ -39,7 +38,6 @@ function App() {
     setIsCreated(!isCreated)
   }
 
-  // temp write to db
   function createUser(name) {
     const uuid = uid()
     set(ref(db, `/${name}`), {
@@ -59,7 +57,6 @@ function App() {
         },
       })
     })
-    return currentUser
   }
 
   console.log(currentUser)
@@ -95,18 +92,13 @@ function App() {
           exact
           path="/"
           element={
-            <Home
-              data={data}
-              handleIsNewUser={handleIsNewUser}
-              findUser={findUser}
-            />
+            <Home handleIsNewUser={handleIsNewUser} findUser={findUser} />
           }
         />
         <Route
           path="/map"
           element={
             <PasswordRecovery
-              data={data}
               handleIsLocation={handleIsLocation}
               handleIsCreated={handleIsCreated}
               updateLocations={updateLocations}

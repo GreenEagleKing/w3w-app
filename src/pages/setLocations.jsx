@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import CreateUser from "../forms/CreateUser"
 import CheckUser from "../forms/CheckUser"
 
-export default function SetLocations({ data, createUser, findUser }) {
+export default function SetLocations({ createUser, findUser }) {
   return (
     <>
       <Header />

@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-export default function Home({ data, handleIsNewUser, findUser }) {
+export default function Home({ handleIsNewUser, findUser }) {
   const [username, setUsername] = useState("")
   const navigate = useNavigate()
 
