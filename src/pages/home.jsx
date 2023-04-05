@@ -19,7 +19,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
   }
 
   return (
-    <>
+    <div className="pageWrapper">
       <Header />
       <div>
         <p>
@@ -43,6 +43,6 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }

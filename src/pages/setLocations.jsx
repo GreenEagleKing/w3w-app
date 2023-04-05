@@ -9,7 +9,7 @@ export default function SetLocations({
   handleIsNewUser,
 }) {
   return (
-    <>
+    <div className="pageWrapper">
       <Header />
       <div>
         <p>
@@ -23,6 +23,6 @@ export default function SetLocations({
           handleIsNewUser={handleIsNewUser}
         />
       </div>
-    </>
+    </div>
   )
 }

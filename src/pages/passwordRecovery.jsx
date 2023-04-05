@@ -13,7 +13,7 @@ export default function PasswordRecovery({
   isUpdating,
 }) {
   return (
-    <>
+    <div className="pageWrapper">
       <Header />
       <MultiStepForm
         handleIsLocation={handleIsLocation}
@@ -24,6 +24,6 @@ export default function PasswordRecovery({
         isUpdating={isUpdating}
       />
       <Map />
-    </>
+    </div>
   )
 }

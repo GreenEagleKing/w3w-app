@@ -10,7 +10,7 @@ export default function Result({
   isUpdating,
 }) {
   return (
-    <>
+    <div className="pageWrapper">
       <Header />
       {isNewUser && isCreated ? (
         <div>
@@ -45,6 +45,6 @@ export default function Result({
       <Link to="/">
         <button>Home</button>
       </Link>
-    </>
+    </div>
   )
 }
