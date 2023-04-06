@@ -155,6 +155,19 @@ video {
   align-items: center;
 }
 
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 /* Button CSS */
 
 .bn30 {
