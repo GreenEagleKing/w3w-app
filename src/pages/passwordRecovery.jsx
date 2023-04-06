@@ -14,16 +14,18 @@ export default function PasswordRecovery({
 }) {
   return (
     <div className="pageWrapper">
-      <Header />
-      <MultiStepForm
-        handleIsLocation={handleIsLocation}
-        updateLocations={updateLocations}
-        isNewUser={isNewUser}
-        currentUser={currentUser}
-        handleIsCreated={handleIsCreated}
-        isUpdating={isUpdating}
-      />
-      <Map />
+      <section className="container">
+        <Header />
+        <MultiStepForm
+          handleIsLocation={handleIsLocation}
+          updateLocations={updateLocations}
+          isNewUser={isNewUser}
+          currentUser={currentUser}
+          handleIsCreated={handleIsCreated}
+          isUpdating={isUpdating}
+        />
+        <Map />
+      </section>
     </div>
   )
 }

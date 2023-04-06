@@ -24,16 +24,17 @@ export default function Map() {
       words="Search Location"
       libraries={["places"]}
     >
-      <div
-        slot="map"
-        role="application"
-        style={{ width: "70%", height: "60vh" }}
-      />
       <div slot="search-control">
         <What3wordsAutosuggest>
-          <input type="text" role="searchbox" placeholder="Search Location" />
+          <input
+            type="text"
+            className="map-input"
+            role="searchbox"
+            placeholder="Search Location"
+          />
         </What3wordsAutosuggest>
       </div>
+      <div id="map" slot="map" role="application"></div>
     </What3wordsMap>
   )
 }
