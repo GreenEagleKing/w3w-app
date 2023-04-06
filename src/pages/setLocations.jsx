@@ -16,12 +16,14 @@ export default function SetLocations({
           <p>
             Please create a new username or find existing to set new locations.
           </p>
-          <CreateUser createUser={createUser} />
-          <CheckUser
-            findUser={findUser}
-            createUser={createUser}
-            handleIsNewUser={handleIsNewUser}
-          />
+          <div className="create-user-wrapper">
+            <CreateUser createUser={createUser} />
+            <CheckUser
+              findUser={findUser}
+              createUser={createUser}
+              handleIsNewUser={handleIsNewUser}
+            />
+          </div>
         </div>
       </section>
     </div>

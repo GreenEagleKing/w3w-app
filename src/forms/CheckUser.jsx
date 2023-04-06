@@ -14,7 +14,7 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
   }
 
   return (
-    <>
+    <div className="user-wrapper">
       <form>
         <input
           type="text"
@@ -23,9 +23,9 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
           onChange={(e) => setUsername(e.target.value)}
         ></input>
         <button onClick={handleSubmit} className="bn30">
-          Find User
+          Find & Update User
         </button>
       </form>
-    </>
+    </div>
   )
 }

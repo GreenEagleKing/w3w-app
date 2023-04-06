@@ -13,7 +13,7 @@ export default function CreateUser({ createUser }) {
   }
 
   return (
-    <>
+    <div className="user-wrapper">
       <form>
         <input
           type="text"
@@ -25,6 +25,6 @@ export default function CreateUser({ createUser }) {
           Create New User
         </button>
       </form>
-    </>
+    </div>
   )
 }

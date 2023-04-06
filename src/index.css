@@ -9,6 +9,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: white;
   line-height: 2em;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 code {
@@ -33,10 +35,10 @@ h3 {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1;
+  margin-top: 10vh;
 }
 
 .container {
@@ -53,6 +55,11 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+
+/* .header {
+  width: 1000px;
+  height: 100px;
+} */
 
 input {
   padding: 0.5rem 1rem;
@@ -123,6 +130,18 @@ video {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+}
+
+.create-user-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.user-wrapper form {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
 /* Map / passwordRecovery page */
