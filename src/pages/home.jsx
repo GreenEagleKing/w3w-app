@@ -29,8 +29,8 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
           <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
           <div className="location-input-container">
             <p className="paragraph-center">
-              If you are new here and have not set your locations before please
-              select 'Choose Locations'.
+              If you are new here and have not set your locations before or want
+              to reset your locations please select 'Choose Locations'.
             </p>
             <Link to="/setLocations">
               <button

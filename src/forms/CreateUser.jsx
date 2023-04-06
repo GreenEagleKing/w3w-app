@@ -21,7 +21,9 @@ export default function CreateUser({ createUser }) {
           placeholder="Input New Username"
           onChange={(e) => setUsername(e.target.value)}
         ></input>
-        <button onClick={handleSubmit}>Create New User</button>
+        <button onClick={handleSubmit} className="bn30">
+          Create New User
+        </button>
       </form>
     </>
   )

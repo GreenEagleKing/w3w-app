@@ -112,6 +112,15 @@ video {
   z-index: -1;
 }
 
+/* Set locations page */
+
+.create-user-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 /* Button CSS */
 
 .bn30 {

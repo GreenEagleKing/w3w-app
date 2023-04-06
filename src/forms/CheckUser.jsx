@@ -22,7 +22,9 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
           placeholder="Input your username"
           onChange={(e) => setUsername(e.target.value)}
         ></input>
-        <button onClick={handleSubmit}>Find User</button>
+        <button onClick={handleSubmit} className="bn30">
+          Find User
+        </button>
       </form>
     </>
   )

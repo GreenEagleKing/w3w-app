@@ -10,19 +10,20 @@ export default function SetLocations({
 }) {
   return (
     <div className="pageWrapper">
-      <Header />
-      <div>
-        <p>
-          Welcome to password recovery using what3words. Please create a new
-          username or input existing.
-        </p>
-        <CreateUser createUser={createUser} />
-        <CheckUser
-          findUser={findUser}
-          createUser={createUser}
-          handleIsNewUser={handleIsNewUser}
-        />
-      </div>
+      <section className="container">
+        <Header />
+        <div className="create-user-container">
+          <p>
+            Please create a new username or find existing to set new locations.
+          </p>
+          <CreateUser createUser={createUser} />
+          <CheckUser
+            findUser={findUser}
+            createUser={createUser}
+            handleIsNewUser={handleIsNewUser}
+          />
+        </div>
+      </section>
     </div>
   )
 }
