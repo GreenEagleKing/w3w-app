@@ -1,5 +1,7 @@
 import React from "react"
 import Header from "../components/Header"
+import Lottie from "lottie-react"
+import mapMarker from "../assets/mapMarker.json"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
@@ -20,29 +22,43 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
 
   return (
     <div className="pageWrapper">
-      <Header />
-      <div>
-        <p>
-          Welcome to password recovery using what3words. Please confirm username
-          is correct by clicking the button below or set locations.
-        </p>
-        <Link to="/setLocations">
-          <button onClick={handleClick}>{`Set Locations`}</button>
-        </Link>
-        <div>
-          <form>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter username"
-            />
-            <button
-              onClick={handleSubmit}
-            >{`Retrieve Password using Map`}</button>
-          </form>
+      <section className="container">
+        <Header />
+        <div className="welcome-container">
+          <h3> Welcome to Password Recovery using What3Words. </h3>
+          <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
+          <div className="location-input-container">
+            <p className="paragraph-center">
+              If you are new here and have not set your locations before please
+              select 'Choose Locations'.
+            </p>
+            <Link to="/setLocations">
+              <button
+                onClick={handleClick}
+                className="bn30"
+              >{`Choose Locations`}</button>
+            </Link>
+          </div>
+          <div className="location-input-container">
+            <p className="paragraph-center">
+              If you have set your locations before please input your username
+              and retrieve locations.
+            </p>
+            <form>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter username"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bn30"
+              >{`Retrieve Password`}</button>
+            </form>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
