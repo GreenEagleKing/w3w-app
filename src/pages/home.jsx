@@ -13,11 +13,17 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
     handleIsNewUser()
   }
 
-  const handleSubmit = (e) => {
-    findUser(username)
-    handleIsNewUser(username)
-    handleUpdateUser(username)
-    navigate("/map")
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await findUser(username)
+      handleIsNewUser(username)
+      handleUpdateUser(username)
+      navigate("/map")
+    } catch (error) {
+      console.log(error.message)
+    }
+    return
   }
 
   return (
@@ -44,7 +50,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
               If you have set your locations before please input your username
               and retrieve locations.
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input
                 type="text"
                 value={username}
@@ -52,7 +58,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
                 placeholder="Enter username"
               />
               <button
-                onClick={handleSubmit}
+                type="submit"
                 className="bn30"
               >{`Retrieve Password`}</button>
             </form>

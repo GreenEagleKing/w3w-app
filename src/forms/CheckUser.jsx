@@ -6,11 +6,15 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
   const [username, setUsername] = useState("")
   const navigate = useNavigate()
 
-  function handleSubmit(e) {
-    // e.preventDefault()
-    findUser(username)
-    handleIsNewUser(username)
-    navigate("/map")
+  async function handleSubmit(e) {
+    e.preventDefault()
+    try {
+      await findUser(username)
+      handleIsNewUser(username)
+      navigate("/map")
+    } catch (error) {
+      throw error
+    }
   }
 
   return (

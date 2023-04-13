@@ -81,16 +81,19 @@ function App() {
     })
   }
 
-  function findUser(username) {
+  async function findUser(username) {
     console.log(username)
-    get(ref(db, `/${username}`))
-      .then((snapshot) => {
-        setCurrentUser(snapshot.val())
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    handleUpdateUser()
+    try {
+      const snapshot = await get(ref(db, `/${username}`))
+      if (snapshot.val() === null) {
+        throw new Error("User not found")
+      }
+      setCurrentUser(snapshot.val())
+      handleUpdateUser()
+    } catch (error) {
+      throw error
+    }
+    console.log(currentUser)
   }
 
   console.log(isNewUser, isUpdating)
