@@ -13,17 +13,19 @@ export default function PasswordRecovery({
   isUpdating,
 }) {
   return (
-    <>
-      <Header />
-      <MultiStepForm
-        handleIsLocation={handleIsLocation}
-        updateLocations={updateLocations}
-        isNewUser={isNewUser}
-        currentUser={currentUser}
-        handleIsCreated={handleIsCreated}
-        isUpdating={isUpdating}
-      />
-      <Map />
-    </>
+    <div className="pageWrapper">
+      <section className="container">
+        <Header />
+        <MultiStepForm
+          handleIsLocation={handleIsLocation}
+          updateLocations={updateLocations}
+          isNewUser={isNewUser}
+          currentUser={currentUser}
+          handleIsCreated={handleIsCreated}
+          isUpdating={isUpdating}
+        />
+        <Map />
+      </section>
+    </div>
   )
 }

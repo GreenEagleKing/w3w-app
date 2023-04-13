@@ -3,6 +3,7 @@ import Home from "./pages/home"
 import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
 import fetchData from "./hooks/api"
+import VideoBackground from "./components/VideoBackground"
 
 import { db } from "./firebase"
 import { uid } from "uid"
@@ -129,6 +130,7 @@ function App() {
               isNewUser={isNewUser}
               isCreated={isCreated}
               isUpdating={isUpdating}
+              currentUser={currentUser}
             />
           }
         />
@@ -143,6 +145,7 @@ function App() {
           }
         />
       </Routes>
+      <VideoBackground id="videoBackground" />
     </BrowserRouter>
   )
 }

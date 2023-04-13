@@ -14,9 +14,10 @@ function LocationTwo({ selectedLocations }) {
   return (
     <div>
       <form>
-        <label>
-          Location 2<p ref={ref} name="location2" className="location"></p>
-        </label>
+        <div className="location-feedback">
+          <h3>Location 2</h3>
+          <p ref={ref} name="location2" className="location"></p>
+        </div>
       </form>
     </div>
   )

@@ -62,12 +62,24 @@ export default function MultiStepForm({
   }
 
   return (
-    <>
+    <div className="location-form">
       {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
       {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
-      {step > 1 && <button onClick={prevStep}>Back</button>}
-      {step < 2 && <button onClick={nextStep}>Next</button>}
-      {step === 2 && <button onClick={handleSubmit}>Submit</button>}
-    </>
+      {step > 1 && (
+        <button onClick={prevStep} className="bn30">
+          Back
+        </button>
+      )}
+      {step < 2 && (
+        <button onClick={nextStep} className="bn30">
+          Next
+        </button>
+      )}
+      {step === 2 && (
+        <button onClick={handleSubmit} className="bn30">
+          Submit
+        </button>
+      )}
+    </div>
   )
 }
