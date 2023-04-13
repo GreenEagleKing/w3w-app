@@ -27,7 +27,7 @@ h1 {
 }
 
 h3 {
-  margin: 2rem;
+  font-size: 1.5rem;
 }
 
 .pageWrapper {
@@ -38,7 +38,7 @@ h3 {
   align-items: center;
   flex-direction: column;
   z-index: 1;
-  margin-top: 10vh;
+  margin-top: 12vh;
 }
 
 .container {
@@ -47,7 +47,7 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 50px;
   border-radius: 2rem;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
@@ -130,6 +130,7 @@ video {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  margin: 50px;
 }
 
 .create-user-wrapper {
@@ -148,19 +149,29 @@ video {
 
 #w3w-map {
   width: 1000px;
-  height: 1000px;
+  height: 800px;
   margin: 2rem;
 }
 
 #map {
   max-width: 100%;
-  height: 60vh;
+  height: 50vh;
+  margin-top: 50px;
+  border-radius: 20px;
 }
 
-.what3words-autosuggest {
-  position: absolute;
-  bottom: 20px;
-  z-index: 2;
+.map-input {
+  position: relative;
+  left: 206px;
+  top: 9px;
+  z-index: 1;
+}
+
+.location {
+  width: 250px;
+  font-size: 1.5rem;
+  color: #2cc418;
+  font-weight: 700;
 }
 
 .location-form {
@@ -172,6 +183,7 @@ video {
 .location-feedback {
   display: flex;
   align-items: center;
+  gap: 2rem;
 }
 
 .result-container {
@@ -180,6 +192,7 @@ video {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin: 50px;
 }
 
 .button-wrapper {

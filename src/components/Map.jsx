@@ -24,17 +24,17 @@ export default function Map() {
       words="Search Location"
       libraries={["places"]}
     >
-      <div slot="search-control">
+      <div id="map" slot="map" role="application"></div>
+      <div slot="search-control" id="address-search">
         <What3wordsAutosuggest>
           <input
             type="text"
             className="map-input"
             role="searchbox"
-            placeholder="Search Location"
+            placeholder="Search Address or Location"
           />
         </What3wordsAutosuggest>
       </div>
-      <div id="map" slot="map" role="application"></div>
     </What3wordsMap>
   )
 }
