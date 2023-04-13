@@ -130,6 +130,7 @@ function App() {
               isNewUser={isNewUser}
               isCreated={isCreated}
               isUpdating={isUpdating}
+              currentUser={currentUser}
             />
           }
         />

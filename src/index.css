@@ -198,7 +198,13 @@ video {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin: 50px;
+  margin: 30px;
+}
+
+.result-locations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .button-wrapper {
