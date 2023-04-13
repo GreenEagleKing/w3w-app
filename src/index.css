@@ -148,23 +148,29 @@ video {
 /* Map / passwordRecovery page */
 
 #w3w-map {
-  width: 1000px;
-  height: 800px;
+  /* width: 800px;
+  height: 800px; */
   margin: 2rem;
+  align-self: center;
 }
 
 #map {
-  max-width: 100%;
+  width: 50vw;
   height: 50vh;
-  margin-top: 50px;
   border-radius: 20px;
+  margin-right: auto;
 }
 
 .map-input {
-  position: relative;
-  left: 206px;
-  top: 9px;
-  z-index: 1;
+  margin-top: 8px;
+  margin-left: 80px;
+}
+
+#address-search {
+  position: absolute;
+  top: 0px;
+  right: 9px;
+  left: auto !important;
 }
 
 .location {
