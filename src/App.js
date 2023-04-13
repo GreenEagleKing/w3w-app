@@ -65,6 +65,18 @@ function App() {
     })
   }
 
+  async function checkUser(username) {
+    console.log(username)
+    try {
+      const snapshot = await get(ref(db, `/${username}`))
+      if (snapshot.val() !== null) {
+        throw new Error("Username already exists")
+      }
+    } catch (error) {
+      throw error
+    }
+  }
+
   console.log(currentUser)
 
   function updateLocations(loc1, loc2) {
@@ -143,6 +155,7 @@ function App() {
             <SetLocations
               createUser={createUser}
               findUser={findUser}
+              checkUser={checkUser}
               handleIsNewUser={handleIsNewUser}
             />
           }

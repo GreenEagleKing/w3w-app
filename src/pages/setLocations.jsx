@@ -6,6 +6,7 @@ import CheckUser from "../forms/CheckUser"
 export default function SetLocations({
   createUser,
   findUser,
+  checkUser,
   handleIsNewUser,
 }) {
   return (
@@ -17,7 +18,7 @@ export default function SetLocations({
             Please create a new username or find existing to set new locations.
           </p>
           <div className="create-user-wrapper">
-            <CreateUser createUser={createUser} />
+            <CreateUser createUser={createUser} checkUser={checkUser} />
             <CheckUser
               findUser={findUser}
               createUser={createUser}
