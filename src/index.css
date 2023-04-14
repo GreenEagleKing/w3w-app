@@ -212,6 +212,27 @@ video {
   justify-content: center;
 }
 
+/* Error Message */
+
+.error-container {
+  display: flex;
+  gap: 15px;
+  border: 5px solid rgb(202, 63, 63);
+  background-color: white;
+  color: rgb(202, 63, 63);
+  padding: 2.5px 15px;
+  border-radius: 65px;
+}
+
+.create-user-error-container {
+  display: flex;
+  justify-content: center;
+}
+
+.error-container p {
+  margin: 0px;
+}
+
 /* Button CSS */
 
 .bn30 {
