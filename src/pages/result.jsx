@@ -63,11 +63,6 @@ export default function Result({
           ) : (
             <div>
               <p>Locations did not match. Please try again.</p>
-              <div className="button-wrapper">
-                <Link to="/">
-                  <button className="bn30">Try Again</button>
-                </Link>
-              </div>
             </div>
           )}
           <span>
