@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "../components/Header"
+import ErrorMessage from "../components/ErrorMessage"
 import Lottie from "lottie-react"
 import mapMarker from "../assets/mapMarker.json"
 import { Link, useNavigate } from "react-router-dom"
@@ -7,6 +8,7 @@ import { useState } from "react"
 
 export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
   const [username, setUsername] = useState("")
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
 
   const handleClick = (e) => {
@@ -21,7 +23,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
       handleUpdateUser(username)
       navigate("/map")
     } catch (error) {
-      console.log(error.message)
+      setError(error.message)
     }
     return
   }
@@ -63,6 +65,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
               >{`Retrieve Password`}</button>
             </form>
           </div>
+          {error && <ErrorMessage error={error} />}
         </div>
       </section>
     </div>
