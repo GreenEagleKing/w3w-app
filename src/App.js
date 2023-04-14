@@ -44,25 +44,29 @@ function App() {
     setIsCreated(!isCreated)
   }
 
-  function createUser(name) {
+  async function createUser(name) {
     const uuid = uid()
-    set(ref(db, `/${name}`), {
-      username: name,
-      id: uuid,
-      what3wordLocations: {
-        locationOne: "",
-        locationTwo: "",
-      },
-    }).then(() => {
-      setCurrentUser({
+    try {
+      await set(ref(db, `/${name}`), {
         username: name,
         id: uuid,
         what3wordLocations: {
           locationOne: "",
           locationTwo: "",
         },
+      }).then(() => {
+        setCurrentUser({
+          username: name,
+          id: uuid,
+          what3wordLocations: {
+            locationOne: "",
+            locationTwo: "",
+          },
+        })
       })
-    })
+    } catch (error) {
+      throw error
+    }
   }
 
   async function checkUser(username) {
@@ -79,18 +83,22 @@ function App() {
 
   console.log(currentUser)
 
-  function updateLocations(loc1, loc2) {
-    update(ref(db, `/${currentUser.username}`), {
-      what3wordLocations: {
-        locationOne: loc1,
-        locationTwo: loc2,
-      },
-    }).then(() => {
-      get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
-        setCurrentUser(snapshot.val())
-        console.log(snapshot.val())
+  async function updateLocations(loc1, loc2) {
+    try {
+      await update(ref(db, `/${currentUser.username}`), {
+        what3wordLocations: {
+          locationOne: loc1,
+          locationTwo: loc2,
+        },
+      }).then(() => {
+        get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
+          setCurrentUser(snapshot.val())
+          console.log(snapshot.val())
+        })
       })
-    })
+    } catch (error) {
+      throw error
+    }
   }
 
   async function findUser(username) {
