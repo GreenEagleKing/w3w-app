@@ -35,9 +35,11 @@ export default function CreateUser({ createUser, checkUser }) {
           </button>
         </form>
       </div>
-      <div className="create-user-error-container">
-        {error && <ErrorMessage error={error} />}
-      </div>
+      {error && (
+        <div className="create-user-error-container">
+          <ErrorMessage error={error} />
+        </div>
+      )}
     </>
   )
 }
