@@ -263,6 +263,38 @@ video {
   margin: 0px;
 }
 
+/* Hint Box */
+
+.hint-container {
+  position: absolute;
+  margin-left: 77vw;
+  margin-right: 60px;
+  bottom: 35vh;
+  z-index: 2;
+  background-color: #15457f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  padding: 15px;
+}
+
+.hint-container h4,
+p {
+  margin: 5px;
+  font-size: smaller;
+}
+
+.hint-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hint-data p {
+  margin: 0px;
+}
+
 /* Button CSS */
 
 .bn30 {
