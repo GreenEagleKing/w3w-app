@@ -11,6 +11,7 @@ import { set, ref, update, get } from "firebase/database"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState, useEffect } from "react"
+import HintMessage from "./components/HintMessage"
 
 function App() {
   const [isLocation, setIsLocation] = useState(false)
@@ -169,6 +170,7 @@ function App() {
           }
         />
       </Routes>
+      <HintMessage currentUser={currentUser} />
       <VideoBackground id="videoBackground" />
     </BrowserRouter>
   )
