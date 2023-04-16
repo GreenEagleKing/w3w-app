@@ -16,7 +16,7 @@ export default function Result({
         <Header />
         <div className="result-container">
           {isNewUser && isCreated ? (
-            <div>
+            <div className="result">
               <p>
                 Locations successfully created for <b>{currentUser.username}</b>
                 .
@@ -51,11 +51,12 @@ export default function Result({
               </div>
             </div>
           ) : isLocation ? (
-            <div>
+            <div className="result">
               <p>
-                Locations successfully matched for <b>{currentUser.username}</b>
-                . Please retrieve password.
+                Locations successfully matched for{" "}
+                <b>{currentUser.username}.</b>
               </p>
+              <p>Please retrieve password.</p>
               <Link to="/">
                 <button className="bn30">Retrieve Password</button>
               </Link>

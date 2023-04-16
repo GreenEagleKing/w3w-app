@@ -237,6 +237,13 @@ video {
   align-items: center;
 }
 
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: center;
