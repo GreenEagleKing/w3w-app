@@ -31,6 +31,7 @@ export default function MultiStepForm({
     } else {
       setSelectedLocations({ ...selectedLocations, locationTwo: square })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [square])
 
   const handleSubmit = async (e) => {
