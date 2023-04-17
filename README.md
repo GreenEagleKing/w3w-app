@@ -4,8 +4,6 @@ The What3Words Password Recovery app allows users to recover their password usin
 
 \*\*It is not been optimised for a responsive layout for mobile yet.
 
-![image](https://raw.githubusercontent.com/GreenEagleKing/100hrs-project/8e3cb02ae1d584876672c76f5b71c9beab22aaec/public/imgs/forGithub/fabpad-gif.gif)
-
 # How It's Made:
 
 Tech used: HTML, CSS, JavaScript, ReactJs, Firebase
