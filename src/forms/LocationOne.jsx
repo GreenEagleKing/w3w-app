@@ -9,7 +9,7 @@ function LocationOne({ selectedLocations }) {
     if (currentLocationRef.innerText === "") {
       currentLocationRef.innerText = selectedLocations.locationOne
     }
-  }, [])
+  })
 
   return (
     <>
