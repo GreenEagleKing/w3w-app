@@ -8,7 +8,7 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
   const navigate = useNavigate()
   const [error, setError] = useState(null)
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       await findUser(username)

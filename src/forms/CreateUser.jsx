@@ -2,14 +2,13 @@ import React from "react"
 import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import CheckUser from "./CheckUser"
 
 export default function CreateUser({ createUser, checkUser }) {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     try {
       await checkUser(username)

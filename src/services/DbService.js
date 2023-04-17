@@ -21,23 +21,23 @@ export function DbService() {
     window.localStorage.setItem("w3w-user-state", JSON.stringify(currentUser))
   }, [currentUser])
 
-  function handleIsLocation() {
+  const handleIsLocation = () => {
     setIsLocation(!isLocation)
   }
 
-  function handleIsNewUser(makeFalse) {
+  const handleIsNewUser = (makeFalse) => {
     makeFalse ? setIsNewUser(false) : setIsNewUser(true)
   }
 
-  function handleUpdateUser(makeFalse) {
+  const handleUpdateUser = (makeFalse) => {
     makeFalse ? setIsUpdating(false) : setIsUpdating(true)
   }
 
-  function handleIsCreated() {
+  const handleIsCreated = () => {
     setIsCreated(!isCreated)
   }
 
-  async function createUser(name) {
+  const createUser = async (name) => {
     const uuid = uid()
     try {
       await set(ref(db, `/${name}`), {
@@ -62,7 +62,7 @@ export function DbService() {
     }
   }
 
-  async function findUser(username) {
+  const findUser = async (username) => {
     console.log(username)
     try {
       const snapshot = await get(ref(db, `/${username}`))
@@ -77,7 +77,7 @@ export function DbService() {
     console.log(currentUser)
   }
 
-  async function updateLocations(loc1, loc2) {
+  const updateLocations = async (loc1, loc2) => {
     try {
       await update(ref(db, `/${currentUser.username}`), {
         what3wordLocations: {
@@ -95,7 +95,7 @@ export function DbService() {
     }
   }
 
-  async function checkUser(username) {
+  const checkUser = async (username) => {
     console.log(username)
     try {
       const snapshot = await get(ref(db, `/${username}`))
