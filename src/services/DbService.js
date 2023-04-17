@@ -63,7 +63,6 @@ export function DbService() {
   }
 
   const findUser = async (username) => {
-    console.log(username)
     try {
       const snapshot = await get(ref(db, `/${username}`))
       if (snapshot.val() === null) {
@@ -74,7 +73,6 @@ export function DbService() {
     } catch (error) {
       throw error
     }
-    console.log(currentUser)
   }
 
   const updateLocations = async (loc1, loc2) => {
@@ -87,7 +85,6 @@ export function DbService() {
       }).then(() => {
         get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
           setCurrentUser(snapshot.val())
-          console.log(snapshot.val())
         })
       })
     } catch (error) {
@@ -96,7 +93,6 @@ export function DbService() {
   }
 
   const checkUser = async (username) => {
-    console.log(username)
     try {
       const snapshot = await get(ref(db, `/${username}`))
       if (snapshot.val() !== null) {
