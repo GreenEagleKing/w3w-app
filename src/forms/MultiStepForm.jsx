@@ -33,8 +33,6 @@ export default function MultiStepForm({
     }
   }, [square])
 
-  console.log(selectedLocations)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {

@@ -9,7 +9,7 @@ function LocationTwo({ selectedLocations }) {
     if (currentLocationRef.innerText === "") {
       currentLocationRef.innerText = selectedLocations.locationTwo
     }
-  }, [])
+  })
 
   return (
     <div>
