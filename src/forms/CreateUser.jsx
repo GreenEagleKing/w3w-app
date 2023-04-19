@@ -12,7 +12,7 @@ export default function CreateUser({ createUser, checkUser }) {
     e.preventDefault()
     try {
       await checkUser(username)
-      createUser(username)
+      await createUser(username)
       navigate("/map")
     } catch (error) {
       setError(error.message)
