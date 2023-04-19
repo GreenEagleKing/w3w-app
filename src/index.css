@@ -8,9 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  line-height: 2em;
+  line-height: 30px;
   max-height: 100%;
   overflow: hidden;
+  font-size: 18px;
 }
 
 code {
@@ -28,6 +29,10 @@ h1 {
 
 h3 {
   font-size: 1.5rem;
+}
+
+h4 {
+  margin: 0.5rem;
 }
 
 .pageWrapper {
@@ -126,6 +131,7 @@ input:focus {
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  gap: 1rem;
 }
 
 .location-input-container > form {
@@ -178,8 +184,6 @@ video {
 /* Map / passwordRecovery page */
 
 #w3w-map {
-  /* width: 800px;
-  height: 800px; */
   margin: 2rem;
   align-self: center;
 }
@@ -206,7 +210,6 @@ video {
 .location {
   width: 250px;
   font-size: 1.5rem;
-  color: #2cc418;
   font-weight: 700;
 }
 
@@ -221,6 +224,8 @@ video {
   align-items: center;
   gap: 2rem;
 }
+
+/* Result Page */
 
 .result-container {
   display: flex;
@@ -242,6 +247,10 @@ video {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.result-btn {
+  margin-top: 1rem;
 }
 
 .button-wrapper {
