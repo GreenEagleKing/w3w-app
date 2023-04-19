@@ -11,15 +11,32 @@ export function DbService() {
   const [isUpdating, setIsUpdating] = useState(false)
 
   useEffect(() => {
-    const data = window.localStorage.getItem("w3w-user-state")
-    if (data !== null) {
-      setCurrentUser(JSON.parse(data))
+    const userState = window.localStorage.getItem("w3w-user-state")
+    const isNewUpdateCreateState = window.localStorage.getItem(
+      "w3w-isNewUpdCre-state"
+    )
+    if (userState !== null) {
+      setCurrentUser(JSON.parse(userState))
+      setIsNewUser(JSON.parse(isNewUpdateCreateState.isNewUser))
+      setIsUpdating(JSON.parse(isNewUpdateCreateState.isUpdating))
+      setIsCreated(JSON.parse(isNewUpdateCreateState.isCreated))
     }
   }, [])
 
   useEffect(() => {
     window.localStorage.setItem("w3w-user-state", JSON.stringify(currentUser))
-  }, [currentUser])
+    window.localStorage.setItem(
+      "w3w-isNewUpdCre-state",
+      JSON.stringify({ isNewUser: isNewUser, isUpdating, isCreated })
+    )
+  }, [currentUser, isNewUser, isUpdating, isCreated])
+
+  const resetState = () => {
+    setCurrentUser(null)
+    setIsNewUser(false)
+    setIsUpdating(false)
+    setIsCreated(false)
+  }
 
   const handleIsLocation = () => {
     setIsLocation(!isLocation)
@@ -32,6 +49,8 @@ export function DbService() {
   const handleUpdateUser = (makeFalse) => {
     makeFalse ? setIsUpdating(false) : setIsUpdating(true)
   }
+
+  console.log(isNewUser, isCreated, isUpdating, isLocation)
 
   const handleIsCreated = () => {
     setIsCreated(!isCreated)
@@ -117,5 +136,6 @@ export function DbService() {
     handleUpdateUser,
     handleIsCreated,
     handleIsLocation,
+    resetState,
   }
 }

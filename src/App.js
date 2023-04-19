@@ -23,6 +23,7 @@ function App() {
     handleUpdateUser,
     handleIsCreated,
     handleIsLocation,
+    resetState,
   } = DbService()
 
   return (
@@ -36,6 +37,7 @@ function App() {
               handleIsNewUser={handleIsNewUser}
               findUser={findUser}
               handleUpdateUser={handleUpdateUser}
+              resetState={resetState}
             />
           }
         />
