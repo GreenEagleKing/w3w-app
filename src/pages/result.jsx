@@ -11,7 +11,7 @@ export default function Result({
   isUpdating,
   currentUser,
 }) {
-  const [notResultPage, setNotResultPage] = useState(true)
+  const [notResultPage] = useState(true)
 
   return (
     <div className="pageWrapper">
