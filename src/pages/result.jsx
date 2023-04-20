@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import Header from "../components/Header"
@@ -10,10 +11,12 @@ export default function Result({
   isUpdating,
   currentUser,
 }) {
+  const [notResultPage, setNotResultPage] = useState(true)
+
   return (
     <div className="pageWrapper">
       <section className="container">
-        <Header />
+        <Header notResultPage={notResultPage} />
         <div className="result-container">
           {isNewUser && isCreated ? (
             <div className="result">
