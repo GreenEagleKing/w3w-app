@@ -36,6 +36,7 @@ export function DbService() {
     setIsNewUser(false)
     setIsUpdating(false)
     setIsCreated(false)
+    setIsLocation(false)
   }
 
   const handleIsLocation = () => {
