@@ -23,6 +23,7 @@ function App() {
     handleUpdateUser,
     handleIsCreated,
     handleIsLocation,
+    resetState,
   } = DbService()
 
   return (
@@ -36,6 +37,7 @@ function App() {
               handleIsNewUser={handleIsNewUser}
               findUser={findUser}
               handleUpdateUser={handleUpdateUser}
+              resetState={resetState}
             />
           }
         />
@@ -72,11 +74,12 @@ function App() {
               findUser={findUser}
               checkUser={checkUser}
               handleIsNewUser={handleIsNewUser}
+              handleUpdateUser={handleUpdateUser}
             />
           }
         />
       </Routes>
-      <HintMessage currentUser={currentUser} />
+      {currentUser && <HintMessage currentUser={currentUser} />}
       <VideoBackground id="videoBackground" />
     </BrowserRouter>
   )

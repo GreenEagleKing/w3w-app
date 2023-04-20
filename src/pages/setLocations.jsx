@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../components/Header"
 import CreateUser from "../forms/CreateUser"
 import CheckUser from "../forms/CheckUser"
@@ -8,7 +8,13 @@ export default function SetLocations({
   findUser,
   checkUser,
   handleIsNewUser,
+  handleUpdateUser,
 }) {
+  useEffect(() => {
+    let resetUpdateUser = true
+    handleUpdateUser(resetUpdateUser)
+  })
+
   return (
     <div className="pageWrapper">
       <section className="container">

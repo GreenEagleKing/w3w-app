@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../components/Header"
 import ErrorMessage from "../components/ErrorMessage"
 import Lottie from "lottie-react"
@@ -6,10 +6,19 @@ import mapMarker from "../assets/mapMarker.json"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
+export default function Home({
+  handleIsNewUser,
+  findUser,
+  handleUpdateUser,
+  resetState,
+}) {
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    resetState()
+  }, [])
 
   const handleClick = (e) => {
     handleIsNewUser()
@@ -62,6 +71,7 @@ export default function Home({ handleIsNewUser, findUser, handleUpdateUser }) {
               <button
                 type="submit"
                 className="bn30"
+                disabled={!username}
               >{`Retrieve Password`}</button>
             </form>
           </div>

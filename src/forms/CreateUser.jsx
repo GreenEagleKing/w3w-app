@@ -12,7 +12,7 @@ export default function CreateUser({ createUser, checkUser }) {
     e.preventDefault()
     try {
       await checkUser(username)
-      createUser(username)
+      await createUser(username)
       navigate("/map")
     } catch (error) {
       setError(error.message)
@@ -29,7 +29,7 @@ export default function CreateUser({ createUser, checkUser }) {
             placeholder="Input New Username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-          <button type="submit" className="bn30">
+          <button disabled={!username} type="submit" className="bn30">
             Create New User
           </button>
         </form>
