@@ -71,6 +71,7 @@ export default function Home({
               <button
                 type="submit"
                 className="bn30"
+                disabled={!username}
               >{`Retrieve Password`}</button>
             </form>
           </div>
