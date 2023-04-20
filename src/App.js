@@ -74,11 +74,12 @@ function App() {
               findUser={findUser}
               checkUser={checkUser}
               handleIsNewUser={handleIsNewUser}
+              handleUpdateUser={handleUpdateUser}
             />
           }
         />
       </Routes>
-      <HintMessage currentUser={currentUser} />
+      {currentUser && <HintMessage currentUser={currentUser} />}
       <VideoBackground id="videoBackground" />
     </BrowserRouter>
   )
