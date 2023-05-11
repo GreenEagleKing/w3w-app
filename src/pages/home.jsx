@@ -32,6 +32,7 @@ export default function Home({
       handleIsNewUser(username)
       handleUpdateUser(username)
       navigate("/map")
+      window.location.reload()
     } catch (error) {
       setError(error.message)
     }

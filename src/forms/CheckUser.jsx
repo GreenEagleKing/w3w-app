@@ -14,6 +14,7 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
       await findUser(username)
       handleIsNewUser(username)
       navigate("/map")
+      window.location.reload()
     } catch (error) {
       setError(error.message)
     }

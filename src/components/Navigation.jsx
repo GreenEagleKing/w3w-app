@@ -12,7 +12,7 @@ export default function Navigation({ notResultPage }) {
         {!notResultPage && (
           <KeyboardBackspaceRoundedIcon onClick={() => navigate(-1)} />
         )}
-        <Link to="/">
+        <Link to="/" reloadDocument>
           <HomeRoundedIcon />
         </Link>
       </span>

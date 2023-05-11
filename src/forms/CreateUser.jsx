@@ -14,6 +14,7 @@ export default function CreateUser({ createUser, checkUser }) {
       await checkUser(username)
       await createUser(username)
       navigate("/map")
+      window.location.reload()
     } catch (error) {
       setError(error.message)
     }
