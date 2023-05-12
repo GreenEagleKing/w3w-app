@@ -57,7 +57,7 @@ export default function Result({
                 Locations successfully matched for <b>{currentUser.username}</b>
               </h4>
               <p>Please retrieve password.</p>
-              <Link to="/" reloadDocument>
+              <Link to="/">
                 <button className="bn30 result-btn">Retrieve Password</button>
               </Link>
             </div>
@@ -67,7 +67,7 @@ export default function Result({
             </div>
           )}
           <span>
-            <Link to="/" reloadDocument>
+            <Link to="/">
               <button className="bn30">Home</button>
             </Link>
           </span>
