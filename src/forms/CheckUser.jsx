@@ -27,10 +27,14 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
           <input
             type="text"
             value={username}
-            placeholder="Input your username"
+            placeholder="Your username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-          <button disabled={!username} onClick={handleSubmit} className="bn30">
+          <button
+            disabled={!username}
+            onClick={handleSubmit}
+            className="bn30 setLocationBtn"
+          >
             Find & Update User
           </button>
         </form>

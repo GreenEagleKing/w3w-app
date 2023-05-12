@@ -37,23 +37,32 @@ export default function MultiStepForm({
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      if (isNewUser || isUpdating) {
-        await updateLocations(
-          selectedLocations.locationOne,
-          selectedLocations.locationTwo
+      if (
+        selectedLocations.locationOne === "" ||
+        selectedLocations.locationTwo === ""
+      ) {
+        throw new Error(
+          "Selected location is blank, please ensure a location is selected for both."
         )
-        handleIsCreated()
       } else {
-        if (
-          selectedLocations.locationOne ===
-            currentUser.what3wordLocations.locationOne &&
-          selectedLocations.locationOne ===
-            currentUser.what3wordLocations.locationOne
-        ) {
-          handleIsLocation()
+        if (isNewUser || isUpdating) {
+          await updateLocations(
+            selectedLocations.locationOne,
+            selectedLocations.locationTwo
+          )
+          handleIsCreated()
+        } else {
+          if (
+            selectedLocations.locationOne ===
+              currentUser.what3wordLocations.locationOne &&
+            selectedLocations.locationOne ===
+              currentUser.what3wordLocations.locationOne
+          ) {
+            handleIsLocation()
+          }
         }
+        navigate("/result")
       }
-      navigate("/result")
     } catch (error) {
       setError(error.message)
     }

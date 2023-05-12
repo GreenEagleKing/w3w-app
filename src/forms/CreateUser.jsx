@@ -27,10 +27,14 @@ export default function CreateUser({ createUser, checkUser }) {
           <input
             type="text"
             value={username}
-            placeholder="Input New Username"
+            placeholder="New Username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-          <button disabled={!username} type="submit" className="bn30">
+          <button
+            disabled={!username}
+            type="submit"
+            className="bn30 setLocationBtn"
+          >
             Create New User
           </button>
         </form>

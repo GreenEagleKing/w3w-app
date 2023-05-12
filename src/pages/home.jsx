@@ -44,13 +44,14 @@ export default function Home({
       <section className="container">
         <Header />
         <div className="welcome-container">
-          <h3> Welcome to Password Recovery using What3Words. </h3>
+          <p className="p-centered">
+            Welcome to Password Recovery using What3Words, an alternative to
+            security questions. Recover a forgotten password using What3Words
+            locations globally to validate and retrieve passwords.
+          </p>
           <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
           <div className="location-input-container">
-            <p className="paragraph-center">
-              If you are new here and have not set your locations before or want
-              to reset your locations please select 'Choose Locations'.
-            </p>
+            <h3>New Users and Updating Existing Locations</h3>
             <Link to="/setLocations">
               <button
                 onClick={handleClick}
@@ -59,10 +60,7 @@ export default function Home({
             </Link>
           </div>
           <div className="location-input-container">
-            <p className="paragraph-center">
-              If you have set your locations before please input your username
-              and retrieve locations.
-            </p>
+            <h3 className="paragraph-center">Existing User</h3>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
