@@ -12,8 +12,14 @@ export function DbService() {
 
   useEffect(() => {
     const userState = window.localStorage.getItem("w3w-user-state")
+    const typeOfRequest = JSON.parse(
+      window.localStorage.getItem("w3w-isNewUpdCre-state")
+    )
     if (userState !== null) {
       setCurrentUser(JSON.parse(userState))
+      setIsNewUser(JSON.parse(typeOfRequest.isNewUser))
+      setIsCreated(JSON.parse(typeOfRequest.isCreated))
+      setIsUpdating(JSON.parse(typeOfRequest.isUpdating))
     }
   }, [])
 
