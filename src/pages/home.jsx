@@ -25,19 +25,19 @@ export default function Home({
     handleIsNewUser()
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      await findUser(username)
-      handleIsNewUser(username)
-      handleUpdateUser(username)
-      navigate("/map")
-      window.location.reload()
-    } catch (error) {
-      setError(error.message)
-    }
-    return
-  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     await findUser(username)
+  //     handleIsNewUser(username)
+  //     handleUpdateUser(username)
+  //     navigate("/map")
+  //     window.location.reload()
+  //   } catch (error) {
+  //     setError(error.message)
+  //   }
+  //   return
+  // }
 
   return (
     <div className="pageWrapper">
@@ -51,15 +51,11 @@ export default function Home({
           </p>
           <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
           <div className="location-input-container">
-            <h3>New Users and Updating Existing Locations</h3>
             <Link to="/setLocations">
-              <button
-                onClick={handleClick}
-                className="bn30"
-              >{`Choose Locations`}</button>
+              <button onClick={handleClick} className="bn30">{`Start`}</button>
             </Link>
           </div>
-          <div className="location-input-container">
+          {/* <div className="location-input-container">
             <h3 className="paragraph-center">Existing User</h3>
             <form onSubmit={handleSubmit}>
               <input
@@ -75,7 +71,7 @@ export default function Home({
               >{`Retrieve Password`}</button>
             </form>
           </div>
-          {error && <ErrorMessage error={error} />}
+          {error && <ErrorMessage error={error} />} */}
         </div>
       </section>
     </div>

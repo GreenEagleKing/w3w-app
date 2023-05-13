@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import Header from "../components/Header"
 import CreateUser from "../forms/CreateUser"
 import CheckUser from "../forms/CheckUser"
+import RetrieveLocation from "../forms/RetrieveLocation"
 
 export default function SetLocations({
   createUser,
@@ -24,6 +25,11 @@ export default function SetLocations({
             Please create a new username or find existing to set new locations.
           </p>
           <div className="create-user-wrapper">
+            <RetrieveLocation
+              findUser={findUser}
+              handleIsNewUser={handleIsNewUser}
+              handleUpdateUser={handleUpdateUser}
+            />
             <CreateUser createUser={createUser} checkUser={checkUser} />
             <CheckUser
               findUser={findUser}
