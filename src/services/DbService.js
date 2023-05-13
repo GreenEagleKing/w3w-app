@@ -5,10 +5,11 @@ import { set, ref, update, get } from "firebase/database"
 
 export function DbService() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [isLocation, setIsLocation] = useState(false)
+  const [isCorrectLocation, setIsCorrectLocation] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
-  const [isCreated, setIsCreated] = useState(false)
+  const [isCreating, setIsCreating] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
+  const [isRetrieving, setIsRetrieving] = useState(false)
 
   useEffect(() => {
     const userState = window.localStorage.getItem("w3w-user-state")
@@ -18,8 +19,9 @@ export function DbService() {
     if (userState !== null) {
       setCurrentUser(JSON.parse(userState))
       setIsNewUser(JSON.parse(typeOfRequest.isNewUser))
-      setIsCreated(JSON.parse(typeOfRequest.isCreated))
+      setIsCreating(JSON.parse(typeOfRequest.isCreating))
       setIsUpdating(JSON.parse(typeOfRequest.isUpdating))
+      setIsRetrieving(JSON.parse(typeOfRequest.isRetrieving))
     }
   }, [])
 
@@ -27,20 +29,30 @@ export function DbService() {
     window.localStorage.setItem("w3w-user-state", JSON.stringify(currentUser))
     window.localStorage.setItem(
       "w3w-isNewUpdCre-state",
-      JSON.stringify({ isNewUser: isNewUser, isUpdating, isCreated })
+      JSON.stringify({
+        isNewUser: isNewUser,
+        isUpdating,
+        isCreating,
+        isRetrieving,
+      })
     )
-  }, [currentUser, isNewUser, isUpdating, isCreated])
+  }, [currentUser, isNewUser, isUpdating, isCreating, isRetrieving])
 
   const resetState = () => {
     setCurrentUser(null)
     setIsNewUser(false)
     setIsUpdating(false)
-    setIsCreated(false)
-    setIsLocation(false)
+    setIsCreating(false)
+    setIsCorrectLocation(false)
+    setIsRetrieving(false)
   }
 
-  const handleIsLocation = () => {
-    setIsLocation(!isLocation)
+  const handleIsCorrectLocation = () => {
+    setIsCorrectLocation(!isCorrectLocation)
+  }
+
+  const handleIsRetrieving = (makeFalse) => {
+    makeFalse ? setIsRetrieving(false) : setIsRetrieving(true)
   }
 
   const handleIsNewUser = (makeFalse) => {
@@ -51,10 +63,10 @@ export function DbService() {
     makeFalse ? setIsUpdating(false) : setIsUpdating(true)
   }
 
-  console.log(isNewUser, isCreated, isUpdating, isLocation)
+  console.log(isNewUser, isCreating, isUpdating, isCorrectLocation)
 
-  const handleIsCreated = () => {
-    setIsCreated(!isCreated)
+  const handleIsCreating = () => {
+    setIsCreating(!isCreating)
   }
 
   const createUser = async (name) => {
@@ -89,7 +101,6 @@ export function DbService() {
         throw new Error("User not found")
       }
       setCurrentUser(snapshot.val())
-      handleUpdateUser()
     } catch (error) {
       throw error
     }
@@ -128,15 +139,17 @@ export function DbService() {
     findUser,
     updateLocations,
     checkUser,
-    isCreated,
-    isLocation,
+    isCreating,
+    isCorrectLocation,
     isNewUser,
     isUpdating,
+    isRetrieving,
     currentUser,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreated,
-    handleIsLocation,
+    handleIsCreating,
+    handleIsCorrectLocation,
+    handleIsRetrieving,
     resetState,
   }
 }

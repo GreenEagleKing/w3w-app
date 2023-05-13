@@ -9,12 +9,15 @@ export default function SetLocations({
   findUser,
   checkUser,
   handleIsNewUser,
+  handleIsRetrieving,
   handleUpdateUser,
+  handleIsCreating,
+  resetState,
 }) {
   useEffect(() => {
-    let resetUpdateUser = true
-    handleUpdateUser(resetUpdateUser)
-  })
+    resetState()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="pageWrapper">
@@ -27,10 +30,13 @@ export default function SetLocations({
           <div className="create-user-wrapper">
             <RetrieveLocation
               findUser={findUser}
-              handleIsNewUser={handleIsNewUser}
-              handleUpdateUser={handleUpdateUser}
+              handleIsRetrieving={handleIsRetrieving}
             />
-            <CreateUser createUser={createUser} checkUser={checkUser} />
+            <CreateUser
+              createUser={createUser}
+              checkUser={checkUser}
+              handleIsCreating={handleIsCreating}
+            />
             <CheckUser
               findUser={findUser}
               createUser={createUser}

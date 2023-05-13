@@ -5,24 +5,26 @@ import Header from "../components/Header"
 import MultiStepForm from "../forms/MultiStepForm"
 
 export default function PasswordRecovery({
-  handleIsLocation,
+  handleIsCorrectLocation,
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreated,
+  handleIsCreating,
   isUpdating,
+  isRetrieving,
 }) {
   return (
     <div className="pageWrapper">
       <section className="container">
         <Header />
         <MultiStepForm
-          handleIsLocation={handleIsLocation}
+          handleIsCorrectLocation={handleIsCorrectLocation}
           updateLocations={updateLocations}
           isNewUser={isNewUser}
           currentUser={currentUser}
-          handleIsCreated={handleIsCreated}
+          handleIsCreating={handleIsCreating}
           isUpdating={isUpdating}
+          isRetrieving={isRetrieving}
         />
         <Map />
       </section>

@@ -15,57 +15,23 @@ function App() {
     updateLocations,
     currentUser,
     checkUser,
-    isCreated,
-    isLocation,
+    isCreating,
+    isCorrectLocation,
     isNewUser,
     isUpdating,
+    isRetrieving,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreated,
-    handleIsLocation,
+    handleIsCreating,
+    handleIsCorrectLocation,
+    handleIsRetrieving,
     resetState,
   } = DbService()
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <Home
-              handleIsNewUser={handleIsNewUser}
-              findUser={findUser}
-              handleUpdateUser={handleUpdateUser}
-              resetState={resetState}
-            />
-          }
-        />
-        <Route
-          path="/map"
-          element={
-            <PasswordRecovery
-              handleIsLocation={handleIsLocation}
-              handleIsCreated={handleIsCreated}
-              updateLocations={updateLocations}
-              isNewUser={isNewUser}
-              currentUser={currentUser}
-              isUpdating={isUpdating}
-            />
-          }
-        />
-        <Route
-          path="/result"
-          element={
-            <Result
-              isLocation={isLocation}
-              isNewUser={isNewUser}
-              isCreated={isCreated}
-              isUpdating={isUpdating}
-              currentUser={currentUser}
-            />
-          }
-        />
+        <Route exact path="/" element={<Home />} />
         <Route
           path="/setLocations"
           element={
@@ -75,6 +41,36 @@ function App() {
               checkUser={checkUser}
               handleIsNewUser={handleIsNewUser}
               handleUpdateUser={handleUpdateUser}
+              handleIsCreating={handleIsCreating}
+              handleIsRetrieving={handleIsRetrieving}
+              resetState={resetState}
+            />
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <PasswordRecovery
+              handleIsCorrectLocation={handleIsCorrectLocation}
+              handleIsCreating={handleIsCreating}
+              updateLocations={updateLocations}
+              isNewUser={isNewUser}
+              currentUser={currentUser}
+              isUpdating={isUpdating}
+              isRetrieving={isRetrieving}
+            />
+          }
+        />
+        <Route
+          path="/result"
+          element={
+            <Result
+              isCorrectLocation={isCorrectLocation}
+              isNewUser={isNewUser}
+              isCreating={isCreating}
+              isUpdating={isUpdating}
+              currentUser={currentUser}
+              isRetrieving={isRetrieving}
             />
           }
         />

@@ -3,11 +3,7 @@ import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function RetrieveLocation({
-  findUser,
-  handleIsNewUser,
-  handleUpdateUser,
-}) {
+export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
@@ -16,8 +12,7 @@ export default function RetrieveLocation({
     e.preventDefault()
     try {
       await findUser(username)
-      handleIsNewUser(username)
-      handleUpdateUser(username)
+      handleIsRetrieving()
       navigate("/map")
       window.location.reload()
     } catch (error) {
@@ -42,7 +37,7 @@ export default function RetrieveLocation({
             type="submit"
             className="bn30 setLocationBtn"
           >
-            Create New User
+            Retrieve Password
           </button>
         </form>
       </div>

@@ -8,12 +8,13 @@ import { useSelectedSquare } from "../hooks/useSelectedSquare"
 import ErrorMessage from "../components/ErrorMessage"
 
 export default function MultiStepForm({
-  handleIsLocation,
+  handleIsCorrectLocation,
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreated,
+  handleIsCreating,
   isUpdating,
+  isRetrieving,
 }) {
   const { square } = useSelectedSquare()
 
@@ -50,15 +51,15 @@ export default function MultiStepForm({
             selectedLocations.locationOne,
             selectedLocations.locationTwo
           )
-          handleIsCreated()
-        } else {
+          handleIsCreating()
+        } else if (isRetrieving) {
           if (
             selectedLocations.locationOne ===
               currentUser.what3wordLocations.locationOne &&
             selectedLocations.locationOne ===
               currentUser.what3wordLocations.locationOne
           ) {
-            handleIsLocation()
+            handleIsCorrectLocation()
           }
         }
         navigate("/result")

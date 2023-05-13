@@ -5,11 +5,12 @@ import { Link } from "react-router-dom"
 import Header from "../components/Header"
 
 export default function Result({
-  isLocation,
+  isCorrectLocation,
   isNewUser,
-  isCreated,
+  isCreating,
   isUpdating,
   currentUser,
+  isRetrieving,
 }) {
   const [notResultPage] = useState(true)
 
@@ -18,7 +19,7 @@ export default function Result({
       <section className="container">
         <Header notResultPage={notResultPage} />
         <div className="result-container">
-          {isNewUser && isCreated ? (
+          {isNewUser && isCreating ? (
             <div className="result">
               <p>
                 Locations successfully created for <b>{currentUser.username}</b>
@@ -42,7 +43,7 @@ export default function Result({
                 <h4>{currentUser.what3wordLocations.locationTwo}</h4>
               </div>
             </div>
-          ) : isNewUser && !isCreated ? (
+          ) : isNewUser && !isCreating ? (
             <div>
               <h4>Locations unsuccessfully created. Please try again.</h4>
               <div className="button-wrapper">
@@ -51,7 +52,7 @@ export default function Result({
                 </Link>
               </div>
             </div>
-          ) : isLocation ? (
+          ) : isRetrieving && isCorrectLocation ? (
             <div className="result">
               <h4>
                 Locations successfully matched for <b>{currentUser.username}</b>
