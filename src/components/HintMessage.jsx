@@ -3,12 +3,12 @@ import React from "react"
 export default function HintMessage({ currentUser }) {
   return (
     <div className="hint-container container">
-      <input id="collapsible" class="toggle" type="checkbox" />
-      <label for="collapsible" class="lbl-toggle">
+      <input id="collapsible" className="toggle" type="checkbox" />
+      <label htmlFor="collapsible" className="lbl-toggle">
         MVP Helper
       </label>
-      <div class="collapsible-content">
-        <div class="content-inner">
+      <div className="collapsible-content">
+        <div className="content-inner">
           <p>
             User data is displayed here to make testing the functionality
             easier.
