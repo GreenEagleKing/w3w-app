@@ -23,6 +23,7 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
   return (
     <>
       <div className="user-wrapper">
+        <h3 className="paragraph-center">Update User Locations</h3>
         <form>
           <input
             type="text"

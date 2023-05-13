@@ -23,6 +23,7 @@ export default function CreateUser({ createUser, checkUser }) {
   return (
     <>
       <div className="user-wrapper">
+        <h3 className="paragraph-center">New User</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"

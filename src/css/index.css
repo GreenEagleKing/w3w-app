@@ -196,6 +196,13 @@ video {
   justify-content: space-between;
 }
 
+.user-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .setLocationBtn {
   width: -webkit-fill-available;
 }
