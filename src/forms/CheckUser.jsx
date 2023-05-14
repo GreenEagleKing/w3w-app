@@ -3,16 +3,17 @@ import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CheckUser({ findUser, handleIsNewUser }) {
+export default function CheckUser({ findUser, handleUpdateUser }) {
   const [username, setUsername] = useState("")
   const navigate = useNavigate()
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
+    let checkType = "retrieveUpdate"
     e.preventDefault()
     try {
-      await findUser(username)
-      handleIsNewUser(username)
+      await findUser(username, checkType)
+      handleUpdateUser()
       navigate("/map")
       window.location.reload()
     } catch (error) {

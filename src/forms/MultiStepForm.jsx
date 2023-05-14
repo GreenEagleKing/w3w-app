@@ -12,7 +12,6 @@ export default function MultiStepForm({
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreating,
   isUpdating,
   isRetrieving,
 }) {
@@ -51,7 +50,6 @@ export default function MultiStepForm({
             selectedLocations.locationOne,
             selectedLocations.locationTwo
           )
-          handleIsCreating()
         } else if (isRetrieving) {
           if (
             selectedLocations.locationOne ===

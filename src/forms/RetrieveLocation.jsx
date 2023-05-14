@@ -9,9 +9,11 @@ export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
+    let checkType = "retrieveUpdate"
+
     e.preventDefault()
     try {
-      await findUser(username)
+      await findUser(username, checkType)
       handleIsRetrieving()
       navigate("/map")
       window.location.reload()

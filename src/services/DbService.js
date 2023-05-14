@@ -7,7 +7,7 @@ export function DbService() {
   const [currentUser, setCurrentUser] = useState(null)
   const [isCorrectLocation, setIsCorrectLocation] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
-  const [isCreating, setIsCreating] = useState(false)
+  const [isCreated, setIsCreated] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
   const [isRetrieving, setIsRetrieving] = useState(false)
 
@@ -19,7 +19,7 @@ export function DbService() {
     if (userState !== null) {
       setCurrentUser(JSON.parse(userState))
       setIsNewUser(JSON.parse(typeOfRequest.isNewUser))
-      setIsCreating(JSON.parse(typeOfRequest.isCreating))
+      setIsCreated(JSON.parse(typeOfRequest.isCreated))
       setIsUpdating(JSON.parse(typeOfRequest.isUpdating))
       setIsRetrieving(JSON.parse(typeOfRequest.isRetrieving))
     }
@@ -32,17 +32,17 @@ export function DbService() {
       JSON.stringify({
         isNewUser: isNewUser,
         isUpdating,
-        isCreating,
+        isCreated,
         isRetrieving,
       })
     )
-  }, [currentUser, isNewUser, isUpdating, isCreating, isRetrieving])
+  }, [currentUser, isNewUser, isUpdating, isCreated, isRetrieving])
 
   const resetState = () => {
     setCurrentUser(null)
     setIsNewUser(false)
     setIsUpdating(false)
-    setIsCreating(false)
+    setIsCreated(false)
     setIsCorrectLocation(false)
     setIsRetrieving(false)
   }
@@ -55,18 +55,18 @@ export function DbService() {
     makeFalse ? setIsRetrieving(false) : setIsRetrieving(true)
   }
 
-  const handleIsNewUser = (makeFalse) => {
-    makeFalse ? setIsNewUser(false) : setIsNewUser(true)
+  const handleIsNewUser = () => {
+    setIsNewUser(!isNewUser)
   }
 
   const handleUpdateUser = (makeFalse) => {
     makeFalse ? setIsUpdating(false) : setIsUpdating(true)
   }
 
-  console.log(isNewUser, isCreating, isUpdating, isCorrectLocation)
+  console.log(isNewUser, isCreated, isUpdating, isCorrectLocation)
 
-  const handleIsCreating = () => {
-    setIsCreating(!isCreating)
+  const handleIsCreated = () => {
+    setIsCreated(!isCreated)
   }
 
   const createUser = async (name) => {
@@ -94,11 +94,13 @@ export function DbService() {
     }
   }
 
-  const findUser = async (username) => {
+  const findUser = async (username, checkType) => {
     try {
       const snapshot = await get(ref(db, `/${username}`))
-      if (snapshot.val() === null) {
+      if (checkType === "retrieveUpdate" && snapshot.val() === null) {
         throw new Error("User not found")
+      } else if (checkType === "newUser" && snapshot.val() !== null) {
+        throw new Error("Username already exists")
       }
       setCurrentUser(snapshot.val())
     } catch (error) {
@@ -118,28 +120,29 @@ export function DbService() {
           setCurrentUser(snapshot.val())
         })
       })
+      handleIsCreated()
     } catch (error) {
       throw error
     }
   }
 
-  const checkUser = async (username) => {
-    try {
-      const snapshot = await get(ref(db, `/${username}`))
-      if (snapshot.val() !== null) {
-        throw new Error("Username already exists")
-      }
-    } catch (error) {
-      throw error
-    }
-  }
+  // const checkUser = async (username) => {
+  //   try {
+  //     const snapshot = await get(ref(db, `/${username}`))
+  //     if (snapshot.val() !== null) {
+  //       throw new Error("Username already exists")
+  //     }
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // }
 
   return {
     createUser,
     findUser,
     updateLocations,
-    checkUser,
-    isCreating,
+    // checkUser,
+    isCreated,
     isCorrectLocation,
     isNewUser,
     isUpdating,
@@ -147,7 +150,6 @@ export function DbService() {
     currentUser,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreating,
     handleIsCorrectLocation,
     handleIsRetrieving,
     resetState,

@@ -7,11 +7,11 @@ import RetrieveLocation from "../forms/RetrieveLocation"
 export default function SetLocations({
   createUser,
   findUser,
-  checkUser,
+  isNewUser,
   handleIsNewUser,
-  handleIsRetrieving,
   handleUpdateUser,
-  handleIsCreating,
+  handleIsRetrieving,
+  handleIsCreated,
   resetState,
 }) {
   useEffect(() => {
@@ -34,13 +34,16 @@ export default function SetLocations({
             />
             <CreateUser
               createUser={createUser}
-              checkUser={checkUser}
-              handleIsCreating={handleIsCreating}
+              isNewUser={isNewUser}
+              findUser={findUser}
+              handleIsNewUser={handleIsNewUser}
+              handleIsCreated={handleIsCreated}
             />
             <CheckUser
               findUser={findUser}
               createUser={createUser}
-              handleIsNewUser={handleIsNewUser}
+              handleUpdateUser={handleUpdateUser}
+              handleIsCreated={handleIsCreated}
             />
           </div>
         </div>

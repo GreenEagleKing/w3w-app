@@ -9,7 +9,6 @@ export default function PasswordRecovery({
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreating,
   isUpdating,
   isRetrieving,
 }) {
@@ -22,7 +21,6 @@ export default function PasswordRecovery({
           updateLocations={updateLocations}
           isNewUser={isNewUser}
           currentUser={currentUser}
-          handleIsCreating={handleIsCreating}
           isUpdating={isUpdating}
           isRetrieving={isRetrieving}
         />

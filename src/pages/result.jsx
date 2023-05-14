@@ -7,7 +7,7 @@ import Header from "../components/Header"
 export default function Result({
   isCorrectLocation,
   isNewUser,
-  isCreating,
+  isCreated,
   isUpdating,
   currentUser,
   isRetrieving,
@@ -19,7 +19,7 @@ export default function Result({
       <section className="container">
         <Header notResultPage={notResultPage} />
         <div className="result-container">
-          {isNewUser && isCreating ? (
+          {isNewUser && isCreated ? (
             <div className="result">
               <p>
                 Locations successfully created for <b>{currentUser.username}</b>
@@ -43,7 +43,7 @@ export default function Result({
                 <h4>{currentUser.what3wordLocations.locationTwo}</h4>
               </div>
             </div>
-          ) : isNewUser && !isCreating ? (
+          ) : isNewUser && !isCreated ? (
             <div>
               <h4>Locations unsuccessfully created. Please try again.</h4>
               <div className="button-wrapper">

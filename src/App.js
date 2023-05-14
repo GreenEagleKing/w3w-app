@@ -14,15 +14,13 @@ function App() {
     findUser,
     updateLocations,
     currentUser,
-    checkUser,
-    isCreating,
+    isCreated,
     isCorrectLocation,
     isNewUser,
     isUpdating,
     isRetrieving,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreating,
     handleIsCorrectLocation,
     handleIsRetrieving,
     resetState,
@@ -38,10 +36,9 @@ function App() {
             <SetLocations
               createUser={createUser}
               findUser={findUser}
-              checkUser={checkUser}
+              isNewUser={isNewUser}
               handleIsNewUser={handleIsNewUser}
               handleUpdateUser={handleUpdateUser}
-              handleIsCreating={handleIsCreating}
               handleIsRetrieving={handleIsRetrieving}
               resetState={resetState}
             />
@@ -52,7 +49,6 @@ function App() {
           element={
             <PasswordRecovery
               handleIsCorrectLocation={handleIsCorrectLocation}
-              handleIsCreating={handleIsCreating}
               updateLocations={updateLocations}
               isNewUser={isNewUser}
               currentUser={currentUser}
@@ -67,7 +63,7 @@ function App() {
             <Result
               isCorrectLocation={isCorrectLocation}
               isNewUser={isNewUser}
-              isCreating={isCreating}
+              isCreated={isCreated}
               isUpdating={isUpdating}
               currentUser={currentUser}
               isRetrieving={isRetrieving}
