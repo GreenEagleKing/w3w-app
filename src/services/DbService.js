@@ -126,22 +126,10 @@ export function DbService() {
     }
   }
 
-  // const checkUser = async (username) => {
-  //   try {
-  //     const snapshot = await get(ref(db, `/${username}`))
-  //     if (snapshot.val() !== null) {
-  //       throw new Error("Username already exists")
-  //     }
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // }
-
   return {
     createUser,
     findUser,
     updateLocations,
-    // checkUser,
     isCreated,
     isCorrectLocation,
     isNewUser,

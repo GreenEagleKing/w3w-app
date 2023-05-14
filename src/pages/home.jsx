@@ -2,8 +2,13 @@ import Header from "../components/Header"
 import Lottie from "lottie-react"
 import mapMarker from "../assets/mapMarker.json"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
-export default function Home() {
+export default function Home({ resetState }) {
+  useEffect(() => {
+    resetState()
+  })
+
   return (
     <div className="pageWrapper">
       <section className="container">

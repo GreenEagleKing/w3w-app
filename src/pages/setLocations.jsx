@@ -16,8 +16,7 @@ export default function SetLocations({
 }) {
   useEffect(() => {
     resetState()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  })
 
   return (
     <div className="pageWrapper">
