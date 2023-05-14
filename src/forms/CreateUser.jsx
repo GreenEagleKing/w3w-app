@@ -1,24 +1,15 @@
-import React, { useEffect } from "react"
 import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CreateUser({
-  createUser,
-  findUser,
-  handleIsNewUser,
-  isNewUser,
-}) {
+export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
-    let isNewUserArg = true
-
     e.preventDefault()
     let checkType = "newUser"
-
     try {
       handleIsNewUser()
       await findUser(username, checkType)

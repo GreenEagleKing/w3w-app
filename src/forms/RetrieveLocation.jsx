@@ -10,7 +10,6 @@ export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
 
   const handleSubmit = async (e) => {
     let checkType = "retrieveUpdate"
-
     e.preventDefault()
     try {
       await findUser(username, checkType)

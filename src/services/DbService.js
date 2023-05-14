@@ -51,16 +51,16 @@ export function DbService() {
     setIsCorrectLocation(!isCorrectLocation)
   }
 
-  const handleIsRetrieving = (makeFalse) => {
-    makeFalse ? setIsRetrieving(false) : setIsRetrieving(true)
+  const handleIsRetrieving = () => {
+    setIsRetrieving(!isRetrieving)
   }
 
   const handleIsNewUser = () => {
     setIsNewUser(!isNewUser)
   }
 
-  const handleUpdateUser = (makeFalse) => {
-    makeFalse ? setIsUpdating(false) : setIsUpdating(true)
+  const handleUpdateUser = () => {
+    setIsUpdating(!isUpdating)
   }
 
   console.log(isNewUser, isCreated, isUpdating, isCorrectLocation)

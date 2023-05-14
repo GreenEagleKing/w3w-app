@@ -22,7 +22,7 @@ export default function Home({ resetState }) {
           <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
           <div className="location-input-container">
             <Link to="/setLocations">
-              <button className="bn30">{`Start`}</button>
+              <button className="bn30">Start</button>
             </Link>
           </div>
         </div>
