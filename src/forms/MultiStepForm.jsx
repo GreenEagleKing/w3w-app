@@ -77,6 +77,7 @@ export default function MultiStepForm({
 
   return (
     <>
+      <p>Select locations on map or input location.</p>
       <div className="location-form">
         {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
         {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
