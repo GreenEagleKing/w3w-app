@@ -77,8 +77,10 @@ export default function MultiStepForm({
 
   return (
     <>
-      <p>Select locations on map or input location.</p>
-      <div className="location-form">
+      <p className="p-centered">Select locations on map or input location.</p>
+      <div
+        className={step === 2 ? "location-form" : "location-form-transition"}
+      >
         {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
         {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
         {step > 1 && (
@@ -92,7 +94,7 @@ export default function MultiStepForm({
           </button>
         )}
         {step === 2 && (
-          <button onClick={handleSubmit} className="bn30">
+          <button onClick={handleSubmit} className="bn30 submit">
             Submit
           </button>
         )}

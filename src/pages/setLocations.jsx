@@ -23,7 +23,7 @@ export default function SetLocations({
       <section className="container">
         <Header />
         <div className="create-user-container">
-          <p>
+          <p className="p-centered">
             Please create a new username or find existing to set new locations.
           </p>
           <div className="create-user-wrapper">
