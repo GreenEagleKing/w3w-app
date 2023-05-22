@@ -14,29 +14,32 @@ function App() {
     findUser,
     updateLocations,
     currentUser,
-    checkUser,
     isCreated,
-    isLocation,
+    isCorrectLocation,
     isNewUser,
     isUpdating,
+    isRetrieving,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreated,
-    handleIsLocation,
+    handleIsCorrectLocation,
+    handleIsRetrieving,
     resetState,
   } = DbService()
 
   return (
     <BrowserRouter>
       <Routes>
+        <Route exact path="/" element={<Home resetState={resetState} />} />
         <Route
-          exact
-          path="/"
+          path="/setLocations"
           element={
-            <Home
-              handleIsNewUser={handleIsNewUser}
+            <SetLocations
+              createUser={createUser}
               findUser={findUser}
+              isNewUser={isNewUser}
+              handleIsNewUser={handleIsNewUser}
               handleUpdateUser={handleUpdateUser}
+              handleIsRetrieving={handleIsRetrieving}
               resetState={resetState}
             />
           }
@@ -45,12 +48,12 @@ function App() {
           path="/map"
           element={
             <PasswordRecovery
-              handleIsLocation={handleIsLocation}
-              handleIsCreated={handleIsCreated}
+              handleIsCorrectLocation={handleIsCorrectLocation}
               updateLocations={updateLocations}
               isNewUser={isNewUser}
               currentUser={currentUser}
               isUpdating={isUpdating}
+              isRetrieving={isRetrieving}
             />
           }
         />
@@ -58,23 +61,12 @@ function App() {
           path="/result"
           element={
             <Result
-              isLocation={isLocation}
+              isCorrectLocation={isCorrectLocation}
               isNewUser={isNewUser}
               isCreated={isCreated}
               isUpdating={isUpdating}
               currentUser={currentUser}
-            />
-          }
-        />
-        <Route
-          path="/setLocations"
-          element={
-            <SetLocations
-              createUser={createUser}
-              findUser={findUser}
-              checkUser={checkUser}
-              handleIsNewUser={handleIsNewUser}
-              handleUpdateUser={handleUpdateUser}
+              isRetrieving={isRetrieving}
             />
           }
         />

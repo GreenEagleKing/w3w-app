@@ -1,26 +1,24 @@
 import React from "react"
-import { useState } from "react"
 import { Link } from "react-router-dom"
 
 import Header from "../components/Header"
 
 export default function Result({
-  isLocation,
+  isCorrectLocation,
   isNewUser,
   isCreated,
   isUpdating,
   currentUser,
+  isRetrieving,
 }) {
-  const [notResultPage] = useState(true)
-
   return (
     <div className="pageWrapper">
       <section className="container">
-        <Header notResultPage={notResultPage} />
+        <Header />
         <div className="result-container">
           {isNewUser && isCreated ? (
             <div className="result">
-              <p>
+              <p className="p-centered">
                 Locations successfully created for <b>{currentUser.username}</b>
               </p>
               <div className="result-locations">
@@ -32,7 +30,7 @@ export default function Result({
             </div>
           ) : isUpdating ? (
             <div>
-              <h4>
+              <h4 className="p-centered">
                 Locations successfully updated for <b>{currentUser.username}</b>
               </h4>
               <div className="result-locations">
@@ -44,16 +42,18 @@ export default function Result({
             </div>
           ) : isNewUser && !isCreated ? (
             <div>
-              <h4>Locations unsuccessfully created. Please try again.</h4>
+              <h4 className="p-centered">
+                Locations unsuccessfully created. Please try again.
+              </h4>
               <div className="button-wrapper">
                 <Link to="/setLocations">
                   <button className="bn30">Go Back</button>
                 </Link>
               </div>
             </div>
-          ) : isLocation ? (
+          ) : isRetrieving && isCorrectLocation ? (
             <div className="result">
-              <h4>
+              <h4 className="p-centered">
                 Locations successfully matched for <b>{currentUser.username}</b>
               </h4>
               <p>Please retrieve password.</p>
@@ -63,7 +63,9 @@ export default function Result({
             </div>
           ) : (
             <div>
-              <h4>Locations did not match. Please try again.</h4>
+              <h4 className="p-centered">
+                Locations did not match. Please try again.
+              </h4>
             </div>
           )}
           <span>

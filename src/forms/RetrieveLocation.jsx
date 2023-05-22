@@ -3,9 +3,9 @@ import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CheckUser({ findUser, handleUpdateUser }) {
-  const [username, setUsername] = useState("")
+export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
   const navigate = useNavigate()
+  const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
@@ -13,31 +13,32 @@ export default function CheckUser({ findUser, handleUpdateUser }) {
     e.preventDefault()
     try {
       await findUser(username, checkType)
-      handleUpdateUser()
+      handleIsRetrieving()
       navigate("/map")
       window.location.reload()
     } catch (error) {
       setError(error.message)
     }
+    return
   }
 
   return (
     <>
       <div className="user-wrapper">
-        <h3 className="paragraph-center">Update User Locations</h3>
-        <form>
+        <h3 className="paragraph-center">Retrieve Location</h3>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             value={username}
-            placeholder="Your username"
+            placeholder="Your Username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
           <button
             disabled={!username}
-            onClick={handleSubmit}
+            type="submit"
             className="bn30 setLocationBtn"
           >
-            Find & Update User
+            Retrieve Password
           </button>
         </form>
       </div>

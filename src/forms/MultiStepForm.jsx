@@ -8,12 +8,12 @@ import { useSelectedSquare } from "../hooks/useSelectedSquare"
 import ErrorMessage from "../components/ErrorMessage"
 
 export default function MultiStepForm({
-  handleIsLocation,
+  handleIsCorrectLocation,
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreated,
   isUpdating,
+  isRetrieving,
 }) {
   const { square } = useSelectedSquare()
 
@@ -50,15 +50,14 @@ export default function MultiStepForm({
             selectedLocations.locationOne,
             selectedLocations.locationTwo
           )
-          handleIsCreated()
-        } else {
+        } else if (isRetrieving) {
           if (
             selectedLocations.locationOne ===
               currentUser.what3wordLocations.locationOne &&
             selectedLocations.locationOne ===
               currentUser.what3wordLocations.locationOne
           ) {
-            handleIsLocation()
+            handleIsCorrectLocation()
           }
         }
         navigate("/result")
@@ -78,7 +77,10 @@ export default function MultiStepForm({
 
   return (
     <>
-      <div className="location-form">
+      <p className="p-centered">Select locations on map or input location.</p>
+      <div
+        className={step === 2 ? "location-form" : "location-form-transition"}
+      >
         {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
         {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
         {step > 1 && (
@@ -92,7 +94,7 @@ export default function MultiStepForm({
           </button>
         )}
         {step === 2 && (
-          <button onClick={handleSubmit} className="bn30">
+          <button onClick={handleSubmit} className="bn30 submit">
             Submit
           </button>
         )}

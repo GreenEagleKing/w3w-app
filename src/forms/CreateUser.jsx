@@ -1,17 +1,18 @@
-import React from "react"
 import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CreateUser({ createUser, checkUser }) {
+export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    let checkType = "newUser"
     try {
-      await checkUser(username)
+      handleIsNewUser()
+      await findUser(username, checkType)
       await createUser(username)
       navigate("/map")
       window.location.reload()
@@ -23,6 +24,7 @@ export default function CreateUser({ createUser, checkUser }) {
   return (
     <>
       <div className="user-wrapper">
+        <h3 className="paragraph-center">New User</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
