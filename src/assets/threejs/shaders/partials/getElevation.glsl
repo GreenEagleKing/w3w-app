@@ -2,6 +2,7 @@ uniform float uElevation;
 
 #pragma glslify: getPerlinNoise2d = require('../partials/getPerlinNoise2d.glsl')
 
+
 float getElevation(vec2 _position)
 {
     float elevation = 0.0;
