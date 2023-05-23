@@ -24,7 +24,7 @@ const ThreeBackground = () => {
     let scene = null
     let camera = {}
     let orbitControls = null
-    let terrain = {}
+    const terrain = {}
     let renderer = null
     let effectComposer = null
     let bokehPass = null
@@ -61,7 +61,6 @@ const ThreeBackground = () => {
       orbitControls.enabled = false
 
       // Terrain
-      terrain.texture = {}
       // Texture settings
       terrain.texture = {}
       terrain.texture.visible = false
@@ -136,6 +135,7 @@ const ThreeBackground = () => {
       }
 
       terrain.texture.update()
+
       // Geometry
       terrain.geometry = new THREE.PlaneGeometry(1, 1, 1000, 1000)
       terrain.geometry.rotateX(-Math.PI * 0.5)
@@ -187,7 +187,7 @@ const ThreeBackground = () => {
         canvas: canvas,
       })
       renderer.setClearColor(0x111111, 1)
-      renderer.outputEncoding = THREE.sRGBEncoding
+      renderer.outputColorSpace = THREE.SRGBColorSpace
       renderer.setSize(sizes.width, sizes.height)
       renderer.setPixelRatio(sizes.pixelRatio)
 
@@ -196,6 +196,7 @@ const ThreeBackground = () => {
         minFilter: THREE.LinearFilter,
         magFilter: THREE.LinearFilter,
         format: THREE.RGBAFormat,
+        encoding: THREE.SRGBColorSpace,
       })
       effectComposer = new EffectComposer(renderer)
       effectComposer.setSize(sizes.width, sizes.height)
@@ -233,8 +234,6 @@ const ThreeBackground = () => {
         },
         rotation: { x: -0.667, y: -Math.PI, z: 0 },
       }
-
-      console.log(view)
 
       // Parallax
       view.parallax = {}
