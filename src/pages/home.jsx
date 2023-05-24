@@ -15,15 +15,9 @@ export default function Home({ resetState }) {
             <W3WRedLogo width={100} height={100} />
             <h1 id="intro-title">PassMap</h1>
           </div>
+          <div>Enter</div>
         </section>
       </Link>
-
-      {/* <div className="">
-          <Link to="/welcome">
-            <button className="bn30">Welcome</button>
-          </Link>
-        </div> */}
-      {/* </section> */}
     </div>
   )
 }

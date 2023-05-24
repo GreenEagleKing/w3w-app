@@ -86,7 +86,13 @@ h4 {
   align-items: center;
   padding: 50px;
   backdrop-filter: blur(10px);
+  background-color: rgba(10, 48, 73, 0.75);
   border: 3px solid white;
+  transition: border ease 1s;
+}
+
+.intro-section:hover {
+  border: 3px solid var(--redW3w);
 }
 
 #intro-title {
@@ -111,11 +117,12 @@ h4 {
   align-items: center;
   flex-direction: column;
   min-width: 40vw;
-  /* min-height: 710px; */
   padding: 50px;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
-  background-color: var(--darkBlueW3w);
+  background-color: rgba(10, 48, 73, 0.75);
+  backdrop-filter: blur(10px);
+  border: 3px solid white;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   overflow: hidden;
@@ -318,19 +325,20 @@ video {
   font-weight: 700;
   color: var(--darkBlueW3w);
   background-color: white;
-  border-radius: 0.25rem;
+  border-radius: 0 0.25rem 0.25rem 0rem;
   padding: 5px 10px 8px 10px;
   height: 30px;
   width: auto;
-  min-width: 250px;
+  min-width: 350px;
 }
 
 .location-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   align-items: center;
   width: 500px;
-  gap: 2rem;
+  gap: 20px;
   transition: transform 0.5s;
 }
 
@@ -348,6 +356,24 @@ video {
   align-items: center;
   gap: 2rem;
   white-space: nowrap;
+}
+
+.selected-location-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+}
+
+#w3w-lines {
+  position: relative;
+  left: auto;
+  color: var(--redW3w);
+  font-weight: 800;
+  background-color: white;
+  border-radius: 0.25rem 0 0 0.25rem;
+  padding: 5px 0px 8px 10px;
+  height: 30px;
 }
 
 /* Result Page */
@@ -544,50 +570,21 @@ video {
 /* Button CSS */
 
 .bn30 {
-  border: 5em;
   cursor: pointer;
   outline: none;
-  font-family: "Satoshi", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 18px;
-  -webkit-transform: translate(0);
-  transform: translate(0);
-  background-image: linear-gradient(45deg, var(--lightBlueW3w), #adabac);
   padding: 0.7em 2em;
   border-radius: 0.25rem;
-  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
-  -webkit-transition: box-shadow 0.25s;
-  transition: box-shadow 0.25s;
   color: white;
-}
-
-.bn30 .text {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(45deg, var(--lightBlueW3w), #b06ab3);
-}
-
-.bn30:after {
-  content: "";
-  border-radius: 0.25rem;
-  position: absolute;
-  margin: 4px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  background: var(--darkBlueW3w);
+  background-color: var(--lightBlueW3w);
+  border: none;
 }
 
 .bn30:hover {
   background-image: linear-gradient(-45deg, var(--redW3w), var(--redW3w));
   box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
-}
-
-.bn30:hover .text {
-  background-image: linear-gradient(-45deg, var(--lightBlueW3w), #b06ab3);
 }
 
 .submit {

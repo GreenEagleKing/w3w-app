@@ -78,8 +78,8 @@ function App() {
         />
       </Routes>
 
-      <VideoBackground id="videoBackground" />
-      {/* <ThreeBackground /> */}
+      {/* <VideoBackground id="videoBackground" /> */}
+      <ThreeBackground />
     </BrowserRouter>
   )
 }
