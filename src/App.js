@@ -4,7 +4,6 @@ import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
 import VideoBackground from "./components/VideoBackground"
 import ThreeBackground from "./components/ThreeBackground"
-import HintMessage from "./components/HintMessage"
 import { DbService } from "./services/DbService"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
