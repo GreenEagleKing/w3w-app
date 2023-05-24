@@ -9,13 +9,6 @@ import terrainFragmentShader from "../assets/threejs/shaders/terrain/fragment.gl
 import terrainDepthVertexShader from "../assets/threejs/shaders/terrainDepth/vertex.glsl"
 import terrainDepthFragmentShader from "../assets/threejs/shaders/terrainDepth/fragment.glsl"
 
-console.log(
-  terrainVertexShader,
-  terrainFragmentShader,
-  terrainDepthVertexShader,
-  terrainDepthFragmentShader
-)
-
 const ThreeBackground = () => {
   const canvasRef = useRef(null)
 

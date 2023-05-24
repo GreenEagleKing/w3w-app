@@ -364,9 +364,9 @@ video {
 
 .hint-container {
   position: absolute;
-  margin-left: 76vw;
+  margin-left: 72vw;
   margin-right: auto;
-  bottom: 3vh;
+  bottom: 9vh;
   min-width: auto;
   max-width: 500px;
   z-index: 2;
