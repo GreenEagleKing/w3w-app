@@ -23,6 +23,21 @@ body {
   height: 100vh;
   overflow: hidden;
   font-size: 18px;
+  animation: fadeIn ease 6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  background-color: black;
+}
+
+@keyframes fadeIn {
+  0% {
+    filter: blur(3px);
+    opacity: 0%;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 100%;
+  }
 }
 
 code {
@@ -60,7 +75,6 @@ h4 {
   flex-direction: column;
   z-index: 1;
   justify-content: center;
-  /* margin-top: 8vh; */
 }
 
 .container {
@@ -142,7 +156,7 @@ input:focus {
 }
 
 .paragraph-center {
-  max-width: 75%;
+  /* max-width: 75%; */
   text-align: center;
 }
 
@@ -198,6 +212,7 @@ video {
 .create-user-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 2em;
   animation: 1s ease-out 0s 1 slideInRight;
 }
@@ -218,14 +233,13 @@ video {
 .user-wrapper form {
   display: flex;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: stretch;
 }
 
 .user-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .setLocationBtn {
