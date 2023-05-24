@@ -2,6 +2,12 @@
 
 @import url("https://fonts.cdnfonts.com/css/satoshi");
 
+:root {
+  --darkBlueW3w: #0a3049;
+  --lightBlueW3w: #005379;
+  --redW3w: #e11f26;
+}
+
 * {
   font-family: "Satoshi", sans-serif;
 }
@@ -66,7 +72,7 @@ h4 {
   border-radius: 2rem;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
-  background: #285c9b;
+  background-color: var(--lightBlueW3w);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   overflow: hidden;
@@ -85,11 +91,11 @@ input {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   outline: none;
-  border: 5px solid #285c9b;
+  border: 5px solid var(--lightBlueW3w);
 }
 
 input:focus {
-  border: 5px solid #2cc418;
+  border: 5px solid var(--redW3w);
 }
 
 /* Navigation */
@@ -119,7 +125,7 @@ input:focus {
 }
 
 .nav svg:hover {
-  color: #84d84c;
+  color: var(--redW3w);
   cursor: pointer;
 }
 
@@ -266,7 +272,7 @@ video {
   width: 250px;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #285c9b;
+  color: var(--lightBlueW3w);
   background-color: white;
   border-radius: 20px;
   padding: 5px 10px 8px 10px;
@@ -338,9 +344,9 @@ video {
 .error-container {
   display: flex;
   gap: 15px;
-  border: 5px solid rgb(202, 63, 63);
+  border: 5px solid var(--redW3w);
   background-color: white;
-  color: rgb(202, 63, 63);
+  color: var(--redW3w);
   padding: 2.5px 15px;
   border-radius: 65px;
 }
@@ -365,7 +371,7 @@ video {
   max-width: 500px;
   z-index: 2;
   background-color: #ffffff;
-  color: #15457f;
+  color: var(--lightBlueW3w);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -402,7 +408,7 @@ video {
 .hint-copy {
   display: flex;
   align-items: center;
-  background: #285c9b;
+  background: var(--lightBlueW3w);
   color: white;
   border-radius: 25px;
   padding-left: 20px;
@@ -412,7 +418,7 @@ video {
 }
 
 .hint-copy:hover {
-  background-color: #15457f;
+  background-color: var(--darkBlueW3w);
 }
 
 .hint-copy:active {
@@ -442,7 +448,7 @@ video {
   padding: 5px;
   margin: 5px;
   border-radius: 100%;
-  color: #15457f;
+  color: var(--lightBlueW3w);
   background-color: white;
   overflow: visible;
 }
@@ -502,7 +508,7 @@ video {
   font-size: 18px;
   -webkit-transform: translate(0);
   transform: translate(0);
-  background-image: linear-gradient(45deg, #4568dc, #adabac);
+  background-image: linear-gradient(45deg, var(--lightBlueW3w), #adabac);
   padding: 0.7em 2em;
   border-radius: 65px;
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
@@ -515,7 +521,7 @@ video {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+  background-image: linear-gradient(45deg, var(--lightBlueW3w), #b06ab3);
 }
 
 .bn30:after {
@@ -528,16 +534,16 @@ video {
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: #15457f;
+  background: var(--darkBlueW3w);
 }
 
 .bn30:hover {
-  background-image: linear-gradient(-45deg, #2cc418, #84d84c);
+  background-image: linear-gradient(-45deg, var(--redW3w), var(--redW3w));
   box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
 }
 
 .bn30:hover .text {
-  background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+  background-image: linear-gradient(-45deg, var(--lightBlueW3w), #b06ab3);
 }
 
 .submit {
