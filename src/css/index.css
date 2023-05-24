@@ -70,7 +70,6 @@ h4 {
   flex-direction: column;
   min-width: 40vw;
   padding: 50px;
-  border-radius: 2rem;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
   background-color: var(--darkBlueW3w);
@@ -90,7 +89,7 @@ h4 {
 
 input {
   padding: 0.5rem 1rem;
-  border-radius: 1rem;
+  border-radius: 0.25rem;
   outline: none;
   border: 5px solid var(--darkBlueW3w);
 }
@@ -241,7 +240,7 @@ video {
 #map {
   width: 50vw;
   height: 50vh;
-  border-radius: 20px;
+  border-radius: 0.25rem;
   margin-right: auto;
 }
 
@@ -275,7 +274,7 @@ video {
   font-weight: 700;
   color: var(--darkBlueW3w);
   background-color: white;
-  border-radius: 20px;
+  border-radius: 0.25rem;
   padding: 5px 10px 8px 10px;
   height: 30px;
   width: auto;
@@ -349,7 +348,7 @@ video {
   background-color: white;
   color: var(--redW3w);
   padding: 2.5px 15px;
-  border-radius: 65px;
+  border-radius: 0.25rem;
 }
 
 .create-user-error-container {
@@ -411,14 +410,15 @@ video {
   align-items: center;
   background: var(--darkBlueW3w);
   color: white;
-  border-radius: 25px;
+  border-radius: 0.25rem;
   padding-left: 20px;
   gap: 10px;
   width: 250px;
   justify-content: space-between;
 }
 
-.hint-copy:hover {
+.hint-copy:hover,
+.hint-copy:hover * {
   background-color: var(--lightBlueW3w);
 }
 
@@ -447,10 +447,8 @@ video {
 
 .copy-btn {
   padding: 5px;
-  margin: 5px;
-  border-radius: 100%;
-  color: var(--darkBlueW3w);
-  background-color: white;
+  color: white;
+  background-color: var(--darkBlueW3w);
   overflow: visible;
 }
 
@@ -511,7 +509,7 @@ video {
   transform: translate(0);
   background-image: linear-gradient(45deg, var(--lightBlueW3w), #adabac);
   padding: 0.7em 2em;
-  border-radius: 65px;
+  border-radius: 0.25rem;
   box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
   -webkit-transition: box-shadow 0.25s;
   transition: box-shadow 0.25s;
@@ -527,7 +525,7 @@ video {
 
 .bn30:after {
   content: "";
-  border-radius: 18px;
+  border-radius: 0.25rem;
   position: absolute;
   margin: 4px;
   top: 0;
