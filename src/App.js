@@ -1,4 +1,5 @@
 import PasswordRecovery from "./pages/passwordRecovery"
+import Welcome from "./pages/welcome"
 import Home from "./pages/home"
 import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
@@ -30,6 +31,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home resetState={resetState} />} />
+        <Route
+          exact
+          path="/welcome"
+          element={<Welcome resetState={resetState} />}
+        />
         <Route
           path="/setLocations"
           element={

@@ -1,8 +1,6 @@
-import Header from "../components/Header"
-import Lottie from "lottie-react"
-import mapMarker from "../assets/mapMarker.json"
 import { Link } from "react-router-dom"
 import { useEffect } from "react"
+import { ReactComponent as W3WRedLogo } from "../assets/W3W-Logo/w3w_Symbol_RGB_Red.svg"
 
 export default function Home({ resetState }) {
   useEffect(() => {
@@ -11,22 +9,21 @@ export default function Home({ resetState }) {
 
   return (
     <div className="pageWrapper">
-      <section className="container">
-        <Header />
-        <div className="welcome-container">
-          <p className="p-centered">
-            Welcome to Password Recovery using What3Words, an alternative to
-            security questions. Recover a forgotten password using What3Words
-            locations globally to validate and retrieve passwords.
-          </p>
-          <Lottie id="mapMarker" animationData={mapMarker} loop={true} />
-          <div className="location-input-container">
-            <Link to="/setLocations">
-              <button className="bn30">Start</button>
-            </Link>
+      <Link to="/welcome" className="link">
+        <section className="intro-section">
+          <div className="intro-title-container">
+            <W3WRedLogo width={100} height={100} />
+            <h1 id="intro-title">PassMap</h1>
           </div>
-        </div>
-      </section>
+        </section>
+      </Link>
+
+      {/* <div className="">
+          <Link to="/welcome">
+            <button className="bn30">Welcome</button>
+          </Link>
+        </div> */}
+      {/* </section> */}
     </div>
   )
 }

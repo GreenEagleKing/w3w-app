@@ -77,6 +77,33 @@ h4 {
   justify-content: center;
 }
 
+/* Intro Page */
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  backdrop-filter: blur(10px);
+  border: 3px solid white;
+}
+
+#intro-title {
+  font-size: 80px;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: unset;
+  color: white;
+}
+
+.intro-title-container {
+  display: flex;
+  align-items: center;
+}
+
 .container {
   background-color: white;
   display: flex;
