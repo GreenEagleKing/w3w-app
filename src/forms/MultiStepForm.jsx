@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 
 import LocationOne from "./LocationOne"
 import LocationTwo from "./LocationTwo"
-import HintMessage from "../components/HintMessage"
 import { useSelectedSquare } from "../hooks/useSelectedSquare"
 import ErrorMessage from "../components/ErrorMessage"
 
@@ -101,7 +100,6 @@ export default function MultiStepForm({
         )}
       </div>
       <div>{error && <ErrorMessage error={error} />}</div>
-      {currentUser && <HintMessage currentUser={currentUser} />}
     </>
   )
 }
