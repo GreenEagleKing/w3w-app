@@ -1,6 +1,7 @@
 /* General CSS */
 
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+/* OLD FONT @import url("https://fonts.cdnfonts.com/css/satoshi"); */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 
 :root {
   --darkBlueW3w: #0a3049;
@@ -9,12 +10,12 @@
 }
 
 * {
-  font-family: "Satoshi", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: "Satoshi", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -72,7 +73,7 @@ h4 {
   border-radius: 2rem;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
-  background-color: var(--lightBlueW3w);
+  background-color: var(--darkBlueW3w);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   overflow: hidden;
@@ -91,7 +92,7 @@ input {
   padding: 0.5rem 1rem;
   border-radius: 1rem;
   outline: none;
-  border: 5px solid var(--lightBlueW3w);
+  border: 5px solid var(--darkBlueW3w);
 }
 
 input:focus {
@@ -272,7 +273,7 @@ video {
   width: 250px;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--lightBlueW3w);
+  color: var(--darkBlueW3w);
   background-color: white;
   border-radius: 20px;
   padding: 5px 10px 8px 10px;
@@ -371,7 +372,7 @@ video {
   max-width: 500px;
   z-index: 2;
   background-color: #ffffff;
-  color: var(--lightBlueW3w);
+  color: var(--darkBlueW3w);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,7 +409,7 @@ video {
 .hint-copy {
   display: flex;
   align-items: center;
-  background: var(--lightBlueW3w);
+  background: var(--darkBlueW3w);
   color: white;
   border-radius: 25px;
   padding-left: 20px;
@@ -418,7 +419,7 @@ video {
 }
 
 .hint-copy:hover {
-  background-color: var(--darkBlueW3w);
+  background-color: var(--lightBlueW3w);
 }
 
 .hint-copy:active {
@@ -448,7 +449,7 @@ video {
   padding: 5px;
   margin: 5px;
   border-radius: 100%;
-  color: var(--lightBlueW3w);
+  color: var(--darkBlueW3w);
   background-color: white;
   overflow: visible;
 }
