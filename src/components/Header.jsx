@@ -9,7 +9,7 @@ export default function Header({ notResultPage }) {
       </div>
 
       <div className="header">
-        <h1>Password Recovery Map</h1>
+        <h1>PassMap</h1>
       </div>
     </>
   )

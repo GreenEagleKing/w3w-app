@@ -1,9 +1,11 @@
 import PasswordRecovery from "./pages/passwordRecovery"
+import Welcome from "./pages/welcome"
 import Home from "./pages/home"
 import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
-import VideoBackground from "./components/VideoBackground"
 import HintMessage from "./components/HintMessage"
+import VideoBackground from "./components/VideoBackground"
+import ThreeBackground from "./components/ThreeBackground"
 import { DbService } from "./services/DbService"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -30,6 +32,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Home resetState={resetState} />} />
+        <Route
+          exact
+          path="/welcome"
+          element={<Welcome resetState={resetState} />}
+        />
         <Route
           path="/setLocations"
           element={
@@ -72,7 +79,8 @@ function App() {
         />
       </Routes>
       {currentUser && <HintMessage currentUser={currentUser} />}
-      <VideoBackground id="videoBackground" />
+      {/* <VideoBackground id="videoBackground" /> */}
+      <ThreeBackground />
     </BrowserRouter>
   )
 }

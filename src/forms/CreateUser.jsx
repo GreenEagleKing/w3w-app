@@ -11,9 +11,9 @@ export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
     e.preventDefault()
     let checkType = "newUser"
     try {
-      handleIsNewUser()
       await findUser(username, checkType)
       await createUser(username)
+      handleIsNewUser()
       navigate("/map")
       window.location.reload()
     } catch (error) {
@@ -42,7 +42,7 @@ export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
         </form>
       </div>
       {error && (
-        <div className="create-user-error-container">
+        <div className="error-wrapper">
           <ErrorMessage error={error} />
         </div>
       )}
