@@ -200,10 +200,10 @@ const ThreeBackground = () => {
       effectComposer.addPass(renderPass)
 
       //Bokeh Pass
-      const bokehPass = new BokehPass(scene, camera.instance, {
+      bokehPass = new BokehPass(scene, camera.instance, {
         focus: 1.0,
         aperture: 0.01,
-        maxblur: 0.012,
+        maxblur: 0.005,
 
         width: sizes.width * sizes.pixelRatio,
         height: sizes.height * sizes.pixelRatio,
