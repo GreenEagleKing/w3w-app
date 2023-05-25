@@ -131,6 +131,7 @@ h4 {
 
 .p-centered {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   max-width: 30vw;
 }
 
@@ -285,6 +286,10 @@ video {
   margin-top: 0;
 }
 
+#update-user-wrapper {
+  margin-top: 1rem;
+}
+
 /* Map / passwordRecovery page */
 
 #w3w-map {
@@ -404,6 +409,13 @@ video {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.result-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .result-btn {
