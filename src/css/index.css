@@ -142,7 +142,8 @@ input {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   outline: none;
-  border: 5px solid var(--darkBlueW3w);
+  border: 5px solid rgba(0, 0, 0, 0);
+  font-size: 18px;
 }
 
 input:focus {
@@ -247,7 +248,7 @@ video {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 2em;
+  gap: 4em;
   animation: 1s ease-out 0s 1 slideInRight;
 }
 
@@ -280,6 +281,10 @@ video {
   width: -webkit-fill-available;
 }
 
+#newUpdate-p {
+  margin-top: 0;
+}
+
 /* Map / passwordRecovery page */
 
 #w3w-map {
@@ -298,6 +303,7 @@ video {
 .map-input {
   margin-top: 8px;
   margin-left: 80px;
+  width: 350px;
 }
 
 @keyframes slideInTop {
@@ -590,4 +596,10 @@ video {
 
 .submit {
   animation: 0.5s ease-out 0s 1 slideInRight;
+}
+
+.horizontal-line {
+  border-bottom: 3px solid white;
+  width: 300px;
+  margin: auto;
 }
