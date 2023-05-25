@@ -42,7 +42,7 @@ export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
         </form>
       </div>
       {error && (
-        <div className="create-user-error-container">
+        <div className="error-wrapper">
           <ErrorMessage error={error} />
         </div>
       )}
