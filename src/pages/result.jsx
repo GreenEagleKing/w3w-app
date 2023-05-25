@@ -23,11 +23,15 @@ export default function Result({
                   Locations successfully created for{" "}
                   <b>{currentUser.username}</b>
                 </p>
-                <div className="result-locations">
-                  <p>Created Location 1 : </p>
-                  <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
-                  <p>Created Location 2 : </p>
-                  <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                <div className="result-locations-wrapper">
+                  <div className="result-locations">
+                    <p className="result-p">Created Location 1 : </p>
+                    <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
+                  </div>
+                  <div className="result-locations">
+                    <p className="result-p">Created Location 2 : </p>
+                    <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                  </div>
                 </div>
               </div>
               <Link to="/">
@@ -41,11 +45,15 @@ export default function Result({
                   Locations successfully updated for{" "}
                   <b>{currentUser.username}</b>
                 </p>
-                <div className="result-locations">
-                  <p>Updated Location 1: </p>
-                  <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
-                  <p>Updated Location 2: </p>
-                  <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                <div className="result-locations-wrapper">
+                  <div className="result-locations">
+                    <p className="result-p">Updated Location 1: </p>
+                    <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
+                  </div>
+                  <div className="result-locations">
+                    <p className="result-p">Updated Location 2: </p>
+                    <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                  </div>
                 </div>
               </div>
               <Link to="/">
@@ -54,7 +62,7 @@ export default function Result({
             </>
           ) : isNewUser && !isCreated ? (
             <div>
-              <p className="p-centered">
+              <p className="p-centered no-match">
                 Locations unsuccessfully created for user {currentUser.username}
               </p>
               <div className="result-btn-wrapper">
@@ -84,7 +92,7 @@ export default function Result({
           ) : (
             <>
               <div>
-                <p className="p-centered">
+                <p className="p-centered no-match">
                   Locations did not match for user <b>{currentUser.username}</b>
                 </p>
               </div>
