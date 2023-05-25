@@ -11,9 +11,9 @@ export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
     e.preventDefault()
     let checkType = "newUser"
     try {
-      handleIsNewUser()
       await findUser(username, checkType)
       await createUser(username)
+      handleIsNewUser()
       navigate("/map")
       window.location.reload()
     } catch (error) {
