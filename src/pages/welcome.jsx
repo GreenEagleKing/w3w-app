@@ -15,7 +15,7 @@ export default function Home({ resetState }) {
         <Header />
         <div className="welcome-container">
           <p className="p-centered">
-            Welcome to Password Recovery using What3Words, an alternative to
+            Welcome to PassMap using What3Words, an alternative to using
             security questions. Recover a forgotten password using What3Words
             locations globally to validate and retrieve passwords.
           </p>
