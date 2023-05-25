@@ -80,7 +80,7 @@ function App() {
       </Routes>
       {currentUser && <HintMessage currentUser={currentUser} />}
       {/* <VideoBackground id="videoBackground" /> */}
-      {/* <ThreeBackground /> */}
+      <ThreeBackground />
     </BrowserRouter>
   )
 }

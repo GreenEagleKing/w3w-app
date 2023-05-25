@@ -81,9 +81,10 @@ export default function Result({
                   Locations successfully matched for{" "}
                   <b>{currentUser.username}</b>
                 </p>
-                <p>
-                  Your password is : <b>"ExamplePassword"</b>
-                </p>
+                <div className="result-locations">
+                  <p className="result-p">Your password is : </p>
+                  <h2>"ExamplePassword"</h2>
+                </div>
               </div>
               <Link to="/">
                 <button className="bn30">Home</button>

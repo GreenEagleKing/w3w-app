@@ -16,7 +16,7 @@ export default function HintMessage({ currentUser }) {
               <b>{currentUser.username}</b>
             </p>
           </div>
-          <p>
+          <p className="p-centered">
             Current user data is displayed here to help testing the app
             functionality easier.
           </p>
