@@ -380,6 +380,7 @@ video {
   align-items: center;
   justify-content: center;
   min-width: 350px;
+  cursor: default;
 }
 
 #w3w-lines {
@@ -481,12 +482,12 @@ video {
 
 .hint-container {
   position: absolute;
-  margin-left: 72vw;
+  margin-left: 76vw;
   margin-right: auto;
-  bottom: 3vh;
+  bottom: 1vh;
   min-width: auto;
   min-height: auto;
-  max-width: 500px;
+  max-width: 450px;
   z-index: 2;
   background-color: #ffffff;
   color: var(--darkBlueW3w);
@@ -534,7 +535,7 @@ video {
   gap: 10px;
   width: 250px;
   justify-content: space-between;
-  cursor: pointer;
+  cursor: copy;
 }
 
 .hint-copy:hover,
