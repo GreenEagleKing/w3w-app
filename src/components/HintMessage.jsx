@@ -17,7 +17,7 @@ export default function HintMessage({ currentUser }) {
             </p>
           </div>
           <p className="p-centered">
-            Current user data is displayed here to help testing the app
+            Current user data is displayed here to help make testing the app
             functionality easier.
           </p>
           {currentUser && (
