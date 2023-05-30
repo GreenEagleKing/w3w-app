@@ -15,7 +15,7 @@ export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
       await findUser(username, checkType)
       handleIsRetrieving()
       navigate("/map")
-      window.location.reload()
+      // window.location.reload()
     } catch (error) {
       setError(error.message)
     }

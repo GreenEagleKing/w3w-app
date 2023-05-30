@@ -4,7 +4,6 @@ import Home from "./pages/home"
 import Result from "./pages/result"
 import SetLocations from "./pages/setLocations"
 import HintMessage from "./components/HintMessage"
-import VideoBackground from "./components/VideoBackground"
 import ThreeBackground from "./components/ThreeBackground"
 import { DbService } from "./services/DbService"
 
@@ -79,7 +78,6 @@ function App() {
         />
       </Routes>
       {currentUser && <HintMessage currentUser={currentUser} />}
-      {/* <VideoBackground id="videoBackground" /> */}
       <ThreeBackground />
     </BrowserRouter>
   )

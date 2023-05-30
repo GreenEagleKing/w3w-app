@@ -12,7 +12,7 @@ export default function Navigation() {
     if (location.pathname.includes("result")) {
       setHideNavBackBtn(false)
     }
-  })
+  }, [])
 
   return (
     <div className="nav-wrapper">
