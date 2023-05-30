@@ -24,30 +24,30 @@ export default function HintMessage({ currentUser }) {
             <div className="hint-data">
               <div className="hint-type">
                 <p>Location 1</p>
-                <div className="hint-copy">
+                <div
+                  className="hint-copy"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      currentUser.what3wordLocations.locationOne
+                    )
+                  }}
+                >
                   <p>{currentUser.what3wordLocations.locationOne}</p>
-                  <ContentCopyIcon
-                    className="copy-btn"
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        currentUser.what3wordLocations.locationOne
-                      )
-                    }}
-                  />
+                  <ContentCopyIcon className="copy-btn" />
                 </div>
               </div>
               <div className="hint-type">
                 <p>Location 2</p>
-                <div className="hint-copy">
+                <div
+                  className="hint-copy"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      currentUser.what3wordLocations.locationTwo
+                    )
+                  }}
+                >
                   <p>{currentUser.what3wordLocations.locationTwo}</p>
-                  <ContentCopyIcon
-                    className="copy-btn"
-                    onClick={() => {
-                      navigator.clipboard.writeText(
-                        currentUser.what3wordLocations.locationTwo
-                      )
-                    }}
-                  />
+                  <ContentCopyIcon className="copy-btn" />
                 </div>
               </div>
             </div>

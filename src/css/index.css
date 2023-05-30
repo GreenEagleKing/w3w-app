@@ -493,10 +493,10 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px;
-  padding: 15px;
+  padding: 0px;
   animation: 1s ease-out 0s 1 slideInBottom;
   box-shadow: none;
+  box-sizing: border-box;
 }
 
 @keyframes slideInBottom {
@@ -534,6 +534,7 @@ video {
   gap: 10px;
   width: 250px;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .hint-copy:hover,
@@ -578,6 +579,9 @@ video {
 .lbl-toggle {
   display: block;
   cursor: pointer;
+  box-sizing: border-box;
+  padding: 20px 200px;
+  white-space: nowrap;
 }
 
 .lbl-toggle::before {
