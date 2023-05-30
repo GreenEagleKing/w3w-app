@@ -209,7 +209,7 @@ const ThreeBackground = () => {
         height: sizes.height * sizes.pixelRatio,
       })
 
-      // bokehPass.enabled = false
+      bokehPass.enabled = false
       effectComposer.addPass(bokehPass)
 
       // Event listeners
