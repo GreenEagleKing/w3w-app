@@ -1,8 +1,10 @@
 # PassMap
 
-The What3Words Password Recovery app allows users to recover their password using map locations. Ultilising the What3Words API and Google Maps users can set a location on the planet and through remembering this location they can retrieve their forgotten password. The aim of this project was to create an app that solves a problem in a creative way.
+Best viewed on a laptop/monitor
 
-![image](https://github.com/GreenEagleKing/portfolio-website-BK/blob/main/images/w3w-showcase.gif)
+The PassMap uses the What3Words API to allow users to recover their password using map locations. Ultilising the What3Words API and Google Maps users can set a location on the planet and by remembering this location they can retrieve their forgotten password. The aim of this project was to create an app that solves a problem in a creative way. I used Three.js to create an interactive mountainous background to represent contour lines found on OS maps.
+
+![image](https://github.com/GreenEagleKing/w3w-app/blob/main/public/github/w3w-gif.gif?raw=true)
 
 # [Link to live website](https://passmap.netlify.app/)
 
@@ -10,20 +12,21 @@ The What3Words Password Recovery app allows users to recover their password usin
 
 # How It's Made:
 
-Tech used: HTML, CSS, JavaScript, ReactJs, Firebase
+Tech used: HTML, CSS, JavaScript, ReactJs, Three.js, Firebase
 
-This web application is a frontend project that has been fully designed and built by myself. All the UI and functionality is built using ReactJS and JavaScript. I chose to implement a Firebase realtime database to store the user information because of its ease of use and flexibillity.
+This web application is a frontend project that has been fully designed and built by myself. All the UI and functionality is built using ReactJS and JavaScript. I chose to implement a Firebase realtime database to store the user information because of its ease of use and flexibility.
 
 
 # The Future:
-
 - Integrate OAuth 2.0
+- Fix window.reload temporary fix - API issue losing connection when navigating away from Map component.
 
 
 # Lessons Learned:
 
-- Seperation of concerns
-- More optimised and organised project structure for better maintainabillity and readabillity.
+- Separation of concerns
+- More optimised and organised project structure for better maintainability and readability.
+- WebGL interactive background
 
 # Check these projects out:
 
