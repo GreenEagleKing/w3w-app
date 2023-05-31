@@ -3,17 +3,19 @@ import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CheckUser({ findUser, handleIsNewUser }) {
+export default function CheckUser({ findUser, handleUpdateUser }) {
   const [username, setUsername] = useState("")
   const navigate = useNavigate()
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
+    let checkType = "retrieveUpdate"
     e.preventDefault()
     try {
-      await findUser(username)
-      handleIsNewUser(username)
+      await findUser(username, checkType)
+      handleUpdateUser()
       navigate("/map")
+      window.location.reload()
     } catch (error) {
       setError(error.message)
     }
@@ -21,21 +23,26 @@ export default function CheckUser({ findUser, handleIsNewUser }) {
 
   return (
     <>
-      <div className="user-wrapper">
+      <div id="update-user-wrapper" className="user-wrapper">
+        <h3 className="paragraph-center">Update User Locations</h3>
         <form>
           <input
             type="text"
             value={username}
-            placeholder="Input your username"
+            placeholder="Your username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
-          <button onClick={handleSubmit} className="bn30">
+          <button
+            disabled={!username}
+            onClick={handleSubmit}
+            className="bn30 setLocationBtn"
+          >
             Find & Update User
           </button>
         </form>
       </div>
       {error && (
-        <div className="create-user-error-container">
+        <div className="error-wrapper">
           <ErrorMessage error={error} />
         </div>
       )}

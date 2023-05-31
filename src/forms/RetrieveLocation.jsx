@@ -1,35 +1,36 @@
+import React from "react"
 import ErrorMessage from "../components/ErrorMessage"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
+export default function RetrieveLocation({ findUser, handleIsRetrieving }) {
   const navigate = useNavigate()
   const [username, setUsername] = useState("")
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
+    let checkType = "retrieveUpdate"
     e.preventDefault()
-    let checkType = "newUser"
     try {
       await findUser(username, checkType)
-      await createUser(username)
-      handleIsNewUser()
+      handleIsRetrieving()
       navigate("/map")
       window.location.reload()
     } catch (error) {
       setError(error.message)
     }
+    return
   }
 
   return (
     <>
       <div className="user-wrapper">
-        <h3 className="paragraph-center">New User</h3>
+        <h3 className="paragraph-center">Retrieve Location</h3>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             value={username}
-            placeholder="New Username"
+            placeholder="Your Username"
             onChange={(e) => setUsername(e.target.value)}
           ></input>
           <button
@@ -37,7 +38,7 @@ export default function CreateUser({ createUser, findUser, handleIsNewUser }) {
             type="submit"
             className="bn30 setLocationBtn"
           >
-            Create New User
+            Retrieve Password
           </button>
         </form>
       </div>

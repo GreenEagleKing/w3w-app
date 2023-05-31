@@ -9,14 +9,17 @@ function LocationOne({ selectedLocations }) {
     if (currentLocationRef.innerText === "") {
       currentLocationRef.innerText = selectedLocations.locationOne
     }
-  }, [])
+  })
 
   return (
     <>
       <form>
         <div className="location-feedback">
           <h3>Location 1</h3>
-          <p ref={ref} name="location1" className="location"></p>
+          <div className="selected-location-container">
+            <p id="w3w-lines">///</p>
+            <p ref={ref} name="location1" className="location"></p>
+          </div>
         </div>
       </form>
     </>

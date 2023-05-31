@@ -5,33 +5,65 @@ import { set, ref, update, get } from "firebase/database"
 
 export function DbService() {
   const [currentUser, setCurrentUser] = useState(null)
-  const [isLocation, setIsLocation] = useState(false)
+  const [isCorrectLocation, setIsCorrectLocation] = useState(false)
   const [isNewUser, setIsNewUser] = useState(false)
   const [isCreated, setIsCreated] = useState(false)
   const [isUpdating, setIsUpdating] = useState(false)
+  const [isRetrieving, setIsRetrieving] = useState(false)
 
   useEffect(() => {
-    const data = window.localStorage.getItem("w3w-user-state")
-    if (data !== null) {
-      setCurrentUser(JSON.parse(data))
+    const userState = window.localStorage.getItem("w3w-user-state")
+    const typeOfRequest = JSON.parse(
+      window.localStorage.getItem("w3w-isNewUpdCre-state")
+    )
+    if (userState !== null) {
+      setCurrentUser(JSON.parse(userState))
+      setIsNewUser(JSON.parse(typeOfRequest.isNewUser))
+      setIsCreated(JSON.parse(typeOfRequest.isCreated))
+      setIsUpdating(JSON.parse(typeOfRequest.isUpdating))
+      setIsRetrieving(JSON.parse(typeOfRequest.isRetrieving))
     }
   }, [])
 
   useEffect(() => {
     window.localStorage.setItem("w3w-user-state", JSON.stringify(currentUser))
-  }, [currentUser])
+    window.localStorage.setItem(
+      "w3w-isNewUpdCre-state",
+      JSON.stringify({
+        isNewUser: isNewUser,
+        isUpdating,
+        isCreated,
+        isRetrieving,
+      })
+    )
+  }, [currentUser, isNewUser, isUpdating, isCreated, isRetrieving])
 
-  const handleIsLocation = () => {
-    setIsLocation(!isLocation)
+  const resetState = () => {
+    setCurrentUser(null)
+    setIsNewUser(false)
+    setIsUpdating(false)
+    setIsCreated(false)
+    setIsCorrectLocation(false)
+    setIsRetrieving(false)
   }
 
-  const handleIsNewUser = (makeFalse) => {
-    makeFalse ? setIsNewUser(false) : setIsNewUser(true)
+  const handleIsCorrectLocation = () => {
+    setIsCorrectLocation(!isCorrectLocation)
   }
 
-  const handleUpdateUser = (makeFalse) => {
-    makeFalse ? setIsUpdating(false) : setIsUpdating(true)
+  const handleIsRetrieving = () => {
+    setIsRetrieving(!isRetrieving)
   }
+
+  const handleIsNewUser = () => {
+    setIsNewUser(!isNewUser)
+  }
+
+  const handleUpdateUser = () => {
+    setIsUpdating(!isUpdating)
+  }
+
+  console.log(isNewUser, isCreated, isUpdating, isCorrectLocation)
 
   const handleIsCreated = () => {
     setIsCreated(!isCreated)
@@ -62,19 +94,18 @@ export function DbService() {
     }
   }
 
-  const findUser = async (username) => {
-    console.log(username)
+  const findUser = async (username, checkType) => {
     try {
       const snapshot = await get(ref(db, `/${username}`))
-      if (snapshot.val() === null) {
+      if (checkType === "retrieveUpdate" && snapshot.val() === null) {
         throw new Error("User not found")
+      } else if (checkType === "newUser" && snapshot.val() !== null) {
+        throw new Error("Username already exists")
       }
       setCurrentUser(snapshot.val())
-      handleUpdateUser()
     } catch (error) {
       throw error
     }
-    console.log(currentUser)
   }
 
   const updateLocations = async (loc1, loc2) => {
@@ -87,21 +118,9 @@ export function DbService() {
       }).then(() => {
         get(ref(db, `/${currentUser.username}`)).then((snapshot) => {
           setCurrentUser(snapshot.val())
-          console.log(snapshot.val())
         })
       })
-    } catch (error) {
-      throw error
-    }
-  }
-
-  const checkUser = async (username) => {
-    console.log(username)
-    try {
-      const snapshot = await get(ref(db, `/${username}`))
-      if (snapshot.val() !== null) {
-        throw new Error("Username already exists")
-      }
+      handleIsCreated()
     } catch (error) {
       throw error
     }
@@ -111,15 +130,16 @@ export function DbService() {
     createUser,
     findUser,
     updateLocations,
-    checkUser,
     isCreated,
-    isLocation,
+    isCorrectLocation,
     isNewUser,
     isUpdating,
+    isRetrieving,
     currentUser,
     handleIsNewUser,
     handleUpdateUser,
-    handleIsCreated,
-    handleIsLocation,
+    handleIsCorrectLocation,
+    handleIsRetrieving,
+    resetState,
   }
 }

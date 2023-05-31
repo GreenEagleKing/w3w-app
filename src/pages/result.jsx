@@ -4,11 +4,12 @@ import { Link } from "react-router-dom"
 import Header from "../components/Header"
 
 export default function Result({
-  isLocation,
+  isCorrectLocation,
   isNewUser,
   isCreated,
   isUpdating,
   currentUser,
+  isRetrieving,
 }) {
   return (
     <div className="pageWrapper">
@@ -16,61 +17,96 @@ export default function Result({
         <Header />
         <div className="result-container">
           {isNewUser && isCreated ? (
-            <div className="result">
-              <p>
-                Locations successfully created for <b>{currentUser.username}</b>
-                .
-              </p>
-              <div className="result-locations">
-                <h3>Location 1: </h3>
-                <p>{currentUser.what3wordLocations.locationOne}</p>
-                <h3>Location 2: </h3>
-                <p>{currentUser.what3wordLocations.locationTwo}</p>
+            <>
+              <div className="result">
+                <p className="p-centered">
+                  Locations successfully created for{" "}
+                  <b>{currentUser.username}</b>
+                </p>
+                <div className="result-locations-wrapper">
+                  <div className="result-locations">
+                    <p className="result-p">Created Location 1 : </p>
+                    <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
+                  </div>
+                  <div className="result-locations">
+                    <p className="result-p">Created Location 2 : </p>
+                    <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                  </div>
+                </div>
               </div>
-            </div>
+              <Link to="/">
+                <button className="bn30">Home</button>
+              </Link>
+            </>
           ) : isUpdating ? (
-            <div>
-              <p>
-                Locations successfully updated for <b>{currentUser.username}</b>
-                .
-              </p>
-              <div className="result-locations">
-                <h3>Updated Location 1: </h3>
-                <p>{currentUser.what3wordLocations.locationOne}</p>
-                <h3>Updated Location 2: </h3>
-                <p>{currentUser.what3wordLocations.locationTwo}</p>
+            <>
+              <div>
+                <p className="p-centered">
+                  Locations successfully updated for{" "}
+                  <b>{currentUser.username}</b>
+                </p>
+                <div className="result-locations-wrapper">
+                  <div className="result-locations">
+                    <p className="result-p">Updated Location 1: </p>
+                    <h2>/// {currentUser.what3wordLocations.locationOne}</h2>
+                  </div>
+                  <div className="result-locations">
+                    <p className="result-p">Updated Location 2: </p>
+                    <h2>/// {currentUser.what3wordLocations.locationTwo}</h2>
+                  </div>
+                </div>
               </div>
-            </div>
+              <Link to="/">
+                <button className="bn30">Home</button>
+              </Link>
+            </>
           ) : isNewUser && !isCreated ? (
             <div>
-              <p>Locations unsuccessfully created. Please try again.</p>
-              <div className="button-wrapper">
+              <p className="p-centered no-match">
+                Locations unsuccessfully created for user {currentUser.username}
+              </p>
+              <div className="result-btn-wrapper">
+                <Link to="/">
+                  <button className="bn30">Home</button>
+                </Link>
                 <Link to="/setLocations">
-                  <button className="bn30">Go Back</button>
+                  <button className="bn30">Try Again</button>
                 </Link>
               </div>
             </div>
-          ) : isLocation ? (
-            <div className="result">
-              <p>
-                Locations successfully matched for{" "}
-                <b>{currentUser.username}.</b>
-              </p>
-              <p>Please retrieve password.</p>
+          ) : isRetrieving && isCorrectLocation ? (
+            <>
+              <div className="result">
+                <p className="p-centered">
+                  Locations successfully matched for{" "}
+                  <b>{currentUser.username}</b>
+                </p>
+                <div className="result-locations">
+                  <p className="result-p">Your password is : </p>
+                  <h2>"ExamplePassword"</h2>
+                </div>
+              </div>
               <Link to="/">
-                <button className="bn30">Retrieve Password</button>
+                <button className="bn30">Home</button>
               </Link>
-            </div>
+            </>
           ) : (
-            <div>
-              <p>Locations did not match. Please try again.</p>
-            </div>
+            <>
+              <div>
+                <p className="p-centered no-match">
+                  Locations did not match for user <b>{currentUser.username}</b>
+                </p>
+              </div>
+              <div className="result-btn-wrapper">
+                <Link to="/">
+                  <button className="bn30">Home</button>
+                </Link>
+                <Link to="/setLocations">
+                  <button className="bn30">Try Again</button>
+                </Link>
+              </div>
+            </>
           )}
-          <span>
-            <Link to="/">
-              <button className="bn30">Home</button>
-            </Link>
-          </span>
         </div>
       </section>
     </div>

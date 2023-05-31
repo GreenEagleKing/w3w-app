@@ -8,12 +8,12 @@ import { useSelectedSquare } from "../hooks/useSelectedSquare"
 import ErrorMessage from "../components/ErrorMessage"
 
 export default function MultiStepForm({
-  handleIsLocation,
+  handleIsCorrectLocation,
   updateLocations,
   isNewUser,
   currentUser,
-  handleIsCreated,
   isUpdating,
+  isRetrieving,
 }) {
   const { square } = useSelectedSquare()
 
@@ -31,30 +31,37 @@ export default function MultiStepForm({
     } else {
       setSelectedLocations({ ...selectedLocations, locationTwo: square })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [square])
-
-  console.log(selectedLocations)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      if (isNewUser || isUpdating) {
-        await updateLocations(
-          selectedLocations.locationOne,
-          selectedLocations.locationTwo
+      if (
+        selectedLocations.locationOne === "" ||
+        selectedLocations.locationTwo === ""
+      ) {
+        throw new Error(
+          "Selected location is blank, please ensure a location is selected for both."
         )
-        handleIsCreated()
       } else {
-        if (
-          selectedLocations.locationOne ===
-            currentUser.what3wordLocations.locationOne &&
-          selectedLocations.locationOne ===
-            currentUser.what3wordLocations.locationOne
-        ) {
-          handleIsLocation()
+        if (isNewUser || isUpdating) {
+          await updateLocations(
+            selectedLocations.locationOne,
+            selectedLocations.locationTwo
+          )
+        } else if (isRetrieving) {
+          if (
+            selectedLocations.locationOne ===
+              currentUser.what3wordLocations.locationOne &&
+            selectedLocations.locationOne ===
+              currentUser.what3wordLocations.locationOne
+          ) {
+            handleIsCorrectLocation()
+          }
         }
+        navigate("/result")
       }
-      navigate("/result")
     } catch (error) {
       setError(error.message)
     }
@@ -70,7 +77,10 @@ export default function MultiStepForm({
 
   return (
     <>
-      <div className="location-form">
+      <p className="p-centered">Select locations on map or input location.</p>
+      <div
+        className={step === 2 ? "location-form" : "location-form-transition"}
+      >
         {step === 1 && <LocationOne selectedLocations={selectedLocations} />}
         {step === 2 && <LocationTwo selectedLocations={selectedLocations} />}
         {step > 1 && (
@@ -84,7 +94,7 @@ export default function MultiStepForm({
           </button>
         )}
         {step === 2 && (
-          <button onClick={handleSubmit} className="bn30">
+          <button onClick={handleSubmit} className="bn30 submit">
             Submit
           </button>
         )}
