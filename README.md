@@ -1,10 +1,10 @@
-# What3Words Password Recovery
+# PassMap
 
 The What3Words Password Recovery app allows users to recover their password using map locations. Ultilising the What3Words API and Google Maps users can set a location on the planet and through remembering this location they can retrieve their forgotten password. The aim of this project was to create an app that solves a problem in a creative way.
 
 ![image](https://github.com/GreenEagleKing/portfolio-website-BK/blob/main/images/w3w-showcase.gif)
 
-# [Link to live website](https://w3wpasswordrecovery.netlify.app/)
+# [Link to live website](https://passmap.netlify.app/)
 
 \*\*It is not been optimised for a responsive layout for mobile yet.
 
@@ -17,7 +17,6 @@ This web application is a frontend project that has been fully designed and buil
 
 # The Future:
 
-- Improve the UI design
 - Integrate OAuth 2.0
 
 
