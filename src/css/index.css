@@ -20,9 +20,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: white;
   line-height: 30px;
-  height: 97vh;
+  height: 100%;
   overflow: hidden;
-  font-size: 18px;
+  font-size: 17px;
   animation: fadeIn ease 6s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -47,7 +47,7 @@ code {
 
 p {
   font-weight: 400;
-  font-size: 1.2rem;
+  font-size: 17px;
   text-align: center;
   margin: 0;
 }
@@ -64,7 +64,7 @@ h2 {
 
 h3 {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 22px;
 }
 
 h4 {
@@ -137,7 +137,7 @@ h4 {
 
 .p-centered {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 30vw;
 }
 
@@ -150,7 +150,7 @@ input {
   border-radius: 0.25rem;
   outline: none;
   border: 5px solid rgba(0, 0, 0, 0);
-  font-size: 18px;
+  font-size: 17px;
 }
 
 input:focus {
@@ -179,7 +179,7 @@ input:focus {
 }
 
 .nav svg {
-  font-size: 2em;
+  font-size: 30px;
   color: white;
 }
 
@@ -255,7 +255,7 @@ video {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 4em;
+  gap: 50px;
   animation: 1s ease-out 0s 1 slideInRight;
 }
 
@@ -338,12 +338,12 @@ video {
 
 .location {
   width: 250px;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 700;
   color: var(--darkBlueW3w);
   background-color: white;
   border-radius: 0 0.25rem 0.25rem 0rem;
-  padding: 5px 10px 8px 10px;
+  padding: 5px 10px 5px 10px;
   height: 30px;
   width: auto;
   min-width: 350px;
@@ -390,7 +390,7 @@ video {
   font-weight: 800;
   background-color: white;
   border-radius: 0.25rem 0 0 0.25rem;
-  padding: 5px 0px 8px 10px;
+  padding: 5px 0px 5px 10px;
   height: 30px;
 }
 
@@ -482,9 +482,8 @@ video {
 
 .hint-container {
   position: absolute;
-  margin-left: 76vw;
-  margin-right: auto;
-  bottom: 1vh;
+  bottom: 2%;
+  right: 2%;
   min-width: auto;
   min-height: auto;
   max-width: 450px;
@@ -563,7 +562,7 @@ video {
 .content-inner {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 
 .copy-btn {
@@ -627,7 +626,7 @@ video {
   outline: none;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17px;
   padding: 0.7em 2em;
   border-radius: 0.25rem;
   color: white;
