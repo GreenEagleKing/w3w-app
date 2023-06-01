@@ -312,8 +312,8 @@ video {
 }
 
 #map {
-  width: 60vw;
-  height: 50vh;
+  width: 50svw;
+  height: 50svh;
   border-radius: 0.25rem;
   margin-right: auto;
 }
@@ -489,11 +489,12 @@ video {
 
 #hint-container {
   position: absolute;
-  bottom: 2%;
-  right: 2%;
+  bottom: 20px;
+  right: 20px;
   min-width: auto;
   min-height: auto;
   max-width: 450px;
+  margin-bottom: auto;
   z-index: 2;
   background-color: #ffffff;
   color: var(--darkBlueW3w);
@@ -680,11 +681,8 @@ video {
     background-color: white;
   }
 
-  .map-input {
-    width: auto;
-  }
-
   #map {
-    width: 70svw;
+    width: 60svw;
+    height: 60svh;
   }
 }
