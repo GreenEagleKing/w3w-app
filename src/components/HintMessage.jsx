@@ -3,7 +3,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy"
 
 export default function HintMessage({ currentUser }) {
   return (
-    <div className="hint-container container">
+    <div id="hint-container" className="container">
       <input id="collapsible" className="toggle" type="checkbox" />
       <label htmlFor="collapsible" className="lbl-toggle">
         MVP Helper
