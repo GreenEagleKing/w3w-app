@@ -14,7 +14,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0px;
   font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,7 +22,7 @@ body {
   line-height: 30px;
   height: 100%;
   overflow: hidden;
-  font-size: 17px;
+  font-size: clamp(12px, 8vw, 20px);
   animation: fadeIn ease 6s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -47,7 +47,6 @@ code {
 
 p {
   font-weight: 400;
-  font-size: 17px;
   text-align: center;
   margin: 0;
 }
@@ -63,7 +62,7 @@ h2 {
 }
 
 h3 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 22px;
 }
 
@@ -102,7 +101,7 @@ h4 {
 }
 
 #intro-title {
-  font-size: 80px;
+  font-size: clamp(40px, 8vw, 80px);
 }
 
 .link {
@@ -122,8 +121,8 @@ h4 {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  min-width: 40sww;
-  margin: 3% 0%;
+  min-width: 40svw;
+  margin: 5% 5%;
   padding: 50px;
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
@@ -132,13 +131,25 @@ h4 {
   border: 3px solid white;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  overflow: hidden;
+  overflow: visible;
   animation: 0.5s ease-out 0s 1 slideInRight;
 }
 
-.container::-webkit-scrollbar-track {
-  box-shadow: none;
+.container::-webkit-scrollbar {
+  width: 1em;
 }
+
+.container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+/* .container::-webkit-scrollbar-track {
+  box-shadow: none;
+} */
 
 .p-centered {
   margin-top: 20px;
@@ -352,7 +363,6 @@ video {
   border-radius: 0 0.25rem 0.25rem 0rem;
   padding: 5px 10px 5px 10px;
   height: 30px;
-  width: auto;
   min-width: 350px;
 }
 
@@ -370,7 +380,7 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 900px;
+  width: auto;
   gap: 2rem;
   transform: translateX(20px);
 }
@@ -386,7 +396,6 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 350px;
   cursor: default;
 }
 
@@ -422,11 +431,11 @@ video {
 .result-locations {
   display: flex;
   align-items: center;
-  /* background-color: white; */
   color: white;
   gap: 20px;
   border: 3px solid white;
   width: -webkit-fill-available;
+  white-space: nowrap;
 }
 
 .result {
@@ -440,6 +449,8 @@ video {
   background-color: white;
   color: var(--darkBlueW3w);
   margin: 0px;
+  width: 200px;
+  height: 100%;
   padding: 17px 15px 15px 15px;
 }
 
@@ -670,20 +681,114 @@ video {
     overflow-y: hidden;
   }
 
-  .container::-webkit-scrollbar {
-    width: 1em;
-  }
-
-  .container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  .container::-webkit-scrollbar-thumb {
-    background-color: white;
-  }
-
   #map {
     width: 60svw;
     height: 60svh;
+  }
+}
+
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 730px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    overflow-y: scroll;
+  }
+
+  #hint-container {
+    overflow: hidden;
+  }
+
+  h3,
+  input {
+    font-size: 18px;
+  }
+  .user-wrapper form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .p-centered {
+    max-width: max-content;
+  }
+
+  .location-form,
+  .location-form-transition {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    width: auto;
+    transform: none;
+  }
+
+  .location-feedback {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .setLocationBtn {
+    width: -webkit-fill-available;
+  }
+
+  .location {
+    min-width: auto;
+    width: auto;
+    font-size: 18px;
+  }
+
+  .map-input {
+    width: auto;
+    margin-top: 60px;
+  }
+
+  #w3w-map {
+    margin: 1rem;
+  }
+
+  .result-btn-wrapper {
+    flex-direction: column;
+  }
+
+  .result-locations {
+    flex-direction: column;
+  }
+
+  .result-p {
+    padding: 0px;
+    width: 100%;
+  }
+
+  h2 {
+    padding: 0px 20px 20px 20px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .container {
+    overflow-y: auto;
+  }
+
+  #hint-container {
+    overflow-y: hidden;
+  }
+
+  .location-form,
+  .location-form-transition {
+    display: grid;
+    grid-template-columns: repeat(1, 0fr);
+    gap: 1rem;
+    width: auto;
+    transform: none;
+  }
+
+  .location-feedback {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .map-input {
+    width: auto;
   }
 }
