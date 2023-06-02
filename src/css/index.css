@@ -22,7 +22,7 @@ body {
   line-height: 30px;
   height: 100%;
   overflow: hidden;
-  font-size: clamp(12px, 8vw, 20px);
+  font-size: clamp(12px, 1.5rem, 20px);
   animation: fadeIn ease 6s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -89,7 +89,7 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: clamp(15px, 5vw, 50px);
   backdrop-filter: blur(10px);
   background-color: rgba(10, 48, 73, 0.75);
   border: 3px solid white;
@@ -122,8 +122,8 @@ h4 {
   align-items: center;
   flex-direction: column;
   min-width: 40svw;
-  margin: 5% 5%;
-  padding: 50px;
+  margin: clamp(20px, 5%, 50px);
+  padding: clamp(15px, 5vw, 50px);
   background: linear-gradient(var(--surface-1), var(--surface-1)) padding-box,
     var(--gradient-1) border-box;
   background-color: rgba(10, 48, 73, 0.75);
@@ -266,7 +266,6 @@ video {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  margin: 0px 50px 50px 50px;
 }
 
 .create-user-wrapper {
@@ -665,7 +664,7 @@ video {
 
 .horizontal-line {
   border-bottom: 3px solid white;
-  width: 300px;
+  width: 100%;
   margin: auto;
 }
 
@@ -697,8 +696,17 @@ video {
     overflow-y: scroll;
   }
 
+  .nav-wrapper {
+    top: -13px;
+    right: -6px;
+  }
+
   #hint-container {
     overflow: hidden;
+  }
+
+  .header h1 {
+    margin-bottom: 0px;
   }
 
   h3,
@@ -739,8 +747,13 @@ video {
   }
 
   .map-input {
-    width: auto;
+    width: 100%;
     margin-top: 60px;
+    margin-left: 0px;
+  }
+
+  #address-search {
+    right: auto;
   }
 
   #w3w-map {
@@ -762,6 +775,12 @@ video {
 
   h2 {
     padding: 0px 20px 20px 20px;
+  }
+
+  #hint-container {
+    right: -20px;
+    bottom: 7px;
+    max-width: 100%;
   }
 }
 
