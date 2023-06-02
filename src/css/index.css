@@ -791,6 +791,10 @@ video {
     bottom: 7px;
     max-width: 100%;
   }
+
+  .hint-type {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -818,5 +822,9 @@ video {
 
   .map-input {
     width: auto;
+  }
+
+  .collapsible-content {
+    overflow: scroll;
   }
 }
