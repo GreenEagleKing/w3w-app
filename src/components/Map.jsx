@@ -11,8 +11,8 @@ export default function Map() {
       map_api_key={process.env.REACT_APP_MAP_API_KEY}
       zoom={18}
       selected_zoom={17}
-      lng={-0.114637}
-      lat={51.454843}
+      lng={-0.12457}
+      lat={51.50087}
       search_control_position={2}
       map_type_control={true}
       zoom_control={true}
