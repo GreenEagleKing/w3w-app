@@ -8,13 +8,11 @@ export default function HintMessage({ currentUser }) {
     setIsExpanded(!isExpanded)
   }
 
-  const containerStyle = {
-    maxWidth: isExpanded ? "500px" : "240px",
-    maxHeight: isExpanded ? "350px" : "70px",
-  }
-
   return (
-    <div id="hint-container" className="container" style={containerStyle}>
+    <div
+      id="hint-container"
+      className={`container ${isExpanded ? "hint-expanded" : "hint-collapsed"}`}
+    >
       <input
         id="collapsible"
         className="toggle"
